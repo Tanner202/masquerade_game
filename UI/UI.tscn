@@ -1,7 +1,18 @@
 [gd_scene format=3 uid="uid://by8d7kcofyw65"]
 
 [ext_resource type="Script" uid="uid://cxwi3ujbbuahn" path="res://UI/ui.gd" id="1_6dd3c"]
-[ext_resource type="Material" uid="uid://c8v0afdshqrl" path="res://Shaders/SusBox.tres" id="2_dhe1o"]
+
+[sub_resource type="Gradient" id="Gradient_dhe1o"]
+colors = PackedColorArray(0.1981962, 0.57650656, 0.46861118, 1, 0, 0.6472938, 0.5441137, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q0uhn"]
+gradient = SubResource("Gradient_dhe1o")
+
+[sub_resource type="Gradient" id="Gradient_jqf55"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_byuxr"]
+gradient = SubResource("Gradient_jqf55")
 
 [sub_resource type="Gradient" id="Gradient_pa3ot"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -13,7 +24,7 @@ gradient = SubResource("Gradient_pa3ot")
 layer = 2
 script = ExtResource("1_6dd3c")
 defaultUIHolder = NodePath("DefaultUI")
-susBar = NodePath("DefaultUI/SuspicionBoxHolder/SuspicionBox/BoxHolder/SusLevel")
+susBar = NodePath("DefaultUI/SuspicionBoxHolder/SuspicionBox/BoxHolder/InnerBoxHolder/TextureProgressBar")
 notesUIHolder = NodePath("NotesUI")
 
 [node name="DefaultUI" type="Control" parent="." unique_id=641941266]
@@ -62,9 +73,8 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="NoSus" type="ColorRect" parent="DefaultUI/SuspicionBoxHolder/SuspicionBox/BoxHolder" unique_id=1963143653]
+[node name="InnerBoxHolder" type="Control" parent="DefaultUI/SuspicionBoxHolder/SuspicionBox/BoxHolder" unique_id=1455817479]
 layout_mode = 1
-anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 5.0
@@ -73,22 +83,20 @@ offset_right = -5.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-color = Color(0.1494745, 0.14947453, 0.1494745, 1)
 
-[node name="SusLevel" type="ColorRect" parent="DefaultUI/SuspicionBoxHolder/SuspicionBox/BoxHolder" unique_id=1538554824]
-material = ExtResource("2_dhe1o")
+[node name="TextureProgressBar" type="TextureProgressBar" parent="DefaultUI/SuspicionBoxHolder/SuspicionBox/BoxHolder/InnerBoxHolder" unique_id=392303697]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.391
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = -5.0
-offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_q0uhn")
+texture_progress = SubResource("GradientTexture1D_byuxr")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="DefaultUI/SuspicionBoxHolder/SuspicionBox" unique_id=2134279688]
 layout_mode = 1

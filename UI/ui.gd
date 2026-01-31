@@ -6,7 +6,7 @@ enum UIState {DEFAULT, NOTES}
 
 # DEFAULT UI
 @export var defaultUIHolder : Control
-@export var susBar : Control
+@export var susBar : TextureProgressBar
 @export var susMoveDuration = 3.0
 @export var susMoveBackDuration = 1.0
 
@@ -27,7 +27,7 @@ func setUI(nextState : UIState) -> void:
 		notesUIHolder.show()
 
 func forceSetSusTo(value : float):
-	susBar.anchor_right = value
+	susBar.value = value
 
 func moveSusLevelToFun(newSusPercent : float):
 		var passedVal = min(newSusPercent + 0.03, 1)
@@ -38,7 +38,7 @@ func moveSusLevelToFun(newSusPercent : float):
 			await moveSusLevelTo(newSusPercent, susMoveDuration, true)
 
 func moveSusLevelTo(newSusPercent : float, duration : float, slowAtEnd : bool) -> void:
-	var curSus : float = susBar.anchor_right
+	var curSus : float = susBar.value
 	var timePassed : float = 0;
 	while (timePassed < duration):
 		var t : float = timePassed / duration
