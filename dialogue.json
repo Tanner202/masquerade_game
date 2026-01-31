@@ -1,27 +1,63 @@
 {
 	"start": {
-		"text": "Hello there!",
+		"text": "Bonjour!",
 		"options": [
 			{
-				"text": "Hi.",
-				"target_id": "unsure_response"
-			},
-			{
-				"text": "Hello! What's your name?",
-				"target_id": "name_response"
+				"text": "Hello- err, I mean, 𝒽𝑒𝓁𝓁𝑜",
+				"target_id": "sweets_dialogue"
 			}
 		]
 	},
-	"name_response": {
-		"text": "My name is ____. What's your name?",
+	"sweets_dialogue": {
+		"text": "Hi. Isn’t it outrageous that the sweets at this masquerade are this bitter?",
 		"options": [
 			{
-				"text": "My name is ____. What do you do?"
-			},
-			{
-				"text": "My name is ____. How do you know ____"
+				"text": "They are?",
+				"target_id": "kitchen_dialogue"
 			}
 		]
 	},
-  
+	"kitchen_dialogue": {
+		"text": "Absolutely. They’re not sweet at all! I hear the good stuff is still in the kitchen.",
+		"options": [
+			{
+				"text": "Actually, there’s a butterfly garden outside of the balcony. There’s a butterfly called...",
+				"target_id": "butterfly_selection"
+			}
+		]
+	},
+	"butterfly_selection": {
+		"text": "[Select a butterfly]",
+		"options": [
+			{
+				"text": "Red admiral",
+				"target_id": "wrong_choice"
+			},
+			{
+				"text": "Chocolate argus",
+				"target_id": "correct_choice"
+			},
+			{
+				"text": "Painted lady",
+				"target_id": "wrong_choice"
+			}
+		]
+	},
+	"wrong_choice": {
+		"text": ".. Ok….",
+		"options": [
+			{
+				"text": "Wait, let me think of another one...",
+				"target_id": "butterfly_selection"
+			}
+		]
+	},
+	"correct_choice": {
+		"text": "Really? That’s kind of gross.. But if it’s chocolate….. let’s go then!",
+		"options": [
+			{
+				"text": "[End of Dialogue]"
+			}
+		]
+	}
 }
