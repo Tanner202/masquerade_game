@@ -16,8 +16,6 @@ func setUI(newUI : UISystem):
 	await raiseSus(0.1)
 	await raiseSus(0.2)
 	await raiseSus(0.3)
-	await raiseSus(0.4)
-	await raiseSus(0.5)
 
 func raiseSus(amount : float) -> void:
 	if (gameState.gameIsOver()):
