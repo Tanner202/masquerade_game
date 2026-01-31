@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://drqhwa4g01bar"]
+
+[ext_resource type="Script" uid="uid://dpk2ea8gr8iwr" path="res://npc.gd" id="1_ul7y6"]
+[ext_resource type="Texture2D" uid="uid://mlwc4tky4q1e" path="res://icon.svg" id="2_bc6q4"]
+[ext_resource type="Script" uid="uid://q8vr6b8h2kso" path="res://dialogue.gd" id="3_mcvl2"]
+[ext_resource type="PackedScene" uid="uid://jv5mfe56m5mb" path="res://dialogue_btn.tscn" id="4_d61ma"]
+
+[node name="NPC" type="Node2D" unique_id=795824750 node_paths=PackedStringArray("dialogue_options")]
+script = ExtResource("1_ul7y6")
+dialogue_options = [NodePath("DialogueOption"), NodePath("DialogueOption2")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1328522716]
+texture = ExtResource("2_bc6q4")
+
+[node name="Dialogue" type="Label" parent="." unique_id=1583389327]
+visible = false
+offset_left = -101.0
+offset_top = -102.0
+offset_right = 106.0
+offset_bottom = -79.0
+text = "Hello! This is example text!"
+script = ExtResource("3_mcvl2")
+
+[node name="DialogueOption" parent="." unique_id=376126389 node_paths=PackedStringArray("dialogue_owner") instance=ExtResource("4_d61ma")]
+visible = false
+offset_left = -176.0
+offset_top = -39.0
+offset_right = -80.0
+offset_bottom = -8.0
+text = "Response 1"
+dialogue_owner = NodePath("..")
+next_dialogue = "name_response"
+
+[node name="DialogueOption2" parent="." unique_id=333918625 node_paths=PackedStringArray("dialogue_owner") instance=ExtResource("4_d61ma")]
+visible = false
+offset_left = -176.0
+offset_top = -1.0
+offset_right = -80.0
+offset_bottom = 30.0
+text = "Response 2"
+dialogue_owner = NodePath("..")
+next_dialogue = "name_response"

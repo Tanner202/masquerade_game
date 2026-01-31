@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://jv5mfe56m5mb"]
+
+[ext_resource type="Script" uid="uid://sh0q42p0y5aq" path="res://dialogue_option.gd" id="1_u4ngc"]
+
+[node name="DialogueBtn" type="Button" unique_id=376126389]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Hello"
+script = ExtResource("1_u4ngc")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
