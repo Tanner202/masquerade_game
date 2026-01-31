@@ -112,6 +112,7 @@ theme_override_fonts/font = ExtResource("3_moif1")
 text = "Bonjour. Comment ça va ?"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="DialogueOptions" type="VBoxContainer" parent="CanvasLayer/DialoguePanel" unique_id=1051162498]
 layout_mode = 0
