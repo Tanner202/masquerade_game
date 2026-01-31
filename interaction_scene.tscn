@@ -25,8 +25,13 @@ func update_ui():
 	for child in options_container.get_children():
 		child.queue_free()
 
+	# hide option buttons at the start
+	options_container.modulate.a = 0
+	options_container.visible = false
+
 	var current_node = dialogue_data[current_id]
 	dialogue_label.text = current_node[\"text\"]
+	dialogue_label.visible_ratio = 0.0
 
 	# create a button for each option
 	for option in current_node[\"options\"]:
@@ -38,10 +43,19 @@ func update_ui():
 		if not option.has(\"target_id\"):
 			print(\"option doesn't have 'target_id' key: \" + str(option))
 		
-		btn.pressed.connect(_on_option_selected.bind(option.get(\"target_id\", \"end\")))
+		btn.pressed.connect(_on_option_selected.bind(option.get(\"target_id\", \"end\"), option.get(\"add_suspicion\", 0.0)))
 		options_container.add_child(btn)
+	
+	# typewrite vibes style effect, then fade in the options
+	var tween = create_tween()
+	tween.tween_property(dialogue_label, \"visible_ratio\", 1.0, dialogue_label.text.length() * 0.03)
+	tween.tween_callback(func(): options_container.visible = true)
+	tween.tween_property(options_container, \"modulate:a\", 1.0, 0.5)
 
-func _on_option_selected(target_id):
+func _on_option_selected(target_id, suspicion):
+	if suspicion != 0:
+		Controller.raiseSus(suspicion)
+
 	if target_id == \"end\":
 		close_interaction()
 	else:
@@ -106,7 +120,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ohbwi")
 
 [node name="DialogueLabel" type="Label" parent="CanvasLayer/DialoguePanel" unique_id=1602003192]
 layout_mode = 0
-offset_right = 412.0
+offset_left = 31.0
+offset_right = 381.0
 offset_bottom = 132.0
 theme_override_fonts/font = ExtResource("3_moif1")
 text = "Bonjour. Comment ça va ?"
@@ -116,6 +131,7 @@ autowrap_mode = 3
 
 [node name="DialogueOptions" type="VBoxContainer" parent="CanvasLayer/DialoguePanel" unique_id=1051162498]
 layout_mode = 0
-offset_left = 430.0
-offset_right = 640.0
+offset_left = 418.0
+offset_top = 11.0
+offset_right = 628.0
 offset_bottom = 132.0
