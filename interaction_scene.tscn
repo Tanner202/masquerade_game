@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://mlwc4tky4q1e" path="res://icon.svg" id="1_773ns"]
 [ext_resource type="Texture2D" uid="uid://giwyyne7wj4l" path="res://Placeholder.png" id="1_ohbwi"]
 [ext_resource type="FontFile" uid="uid://ddqis61kyd6jj" path="res://Tiny5-Regular.ttf" id="3_moif1"]
+[ext_resource type="Texture2D" uid="uid://t1pns0jgjllt" path="res://Tux-1.png.png" id="3_v4pst"]
 
 [sub_resource type="GDScript" id="GDScript_phxgd"]
 script/source = "extends CanvasLayer
@@ -84,7 +85,7 @@ offset_right = 640.0
 offset_bottom = 228.0
 texture = ExtResource("1_773ns")
 
-[node name="PlayerPortrait" type="TextureRect" parent="CanvasLayer" unique_id=68229762]
+[node name="NPCPortrait" type="TextureRect" parent="CanvasLayer" unique_id=68229762]
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = -90.0
@@ -95,7 +96,7 @@ grow_vertical = 2
 texture = ExtResource("1_ohbwi")
 flip_h = true
 
-[node name="NPCPortrait" type="TextureRect" parent="CanvasLayer" unique_id=958055816]
+[node name="PlayerPortrait" type="TextureRect" parent="CanvasLayer" unique_id=958055816]
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
@@ -106,7 +107,7 @@ offset_right = 80.0
 offset_bottom = 60.0
 grow_horizontal = 0
 grow_vertical = 2
-texture = ExtResource("1_ohbwi")
+texture = ExtResource("3_v4pst")
 
 [node name="DialoguePanel" type="Panel" parent="CanvasLayer" unique_id=232815971]
 anchors_preset = 12
