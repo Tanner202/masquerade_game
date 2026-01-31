@@ -18,6 +18,10 @@ config/name="MasqueradeGame"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Controller="*uid://dxqg5kmdmtia"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
