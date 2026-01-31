@@ -4,11 +4,11 @@
 		"options": [
 			{
 				"text": "Hi.",
-				"next": "unsure_response"
+				"target_id": "unsure_response"
 			},
 			{
 				"text": "Hello! What's your name?",
-				"next": "name_response"
+				"target_id": "name_response"
 			}
 		]
 	},
@@ -22,5 +22,6 @@
 				"text": "My name is ____. How do you know ____"
 			}
 		]
-	}
+	},
+  
 }
