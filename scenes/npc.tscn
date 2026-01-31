@@ -29,7 +29,6 @@ offset_right = -80.0
 offset_bottom = -8.0
 text = "Response 1"
 dialogue_owner = NodePath("..")
-next_dialogue = "name_response"
 
 [node name="DialogueOption2" parent="." unique_id=333918625 node_paths=PackedStringArray("dialogue_owner") instance=ExtResource("4_d61ma")]
 visible = false
@@ -39,4 +38,3 @@ offset_right = -80.0
 offset_bottom = 30.0
 text = "Response 2"
 dialogue_owner = NodePath("..")
-next_dialogue = "name_response"

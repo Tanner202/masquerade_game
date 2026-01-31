@@ -16,10 +16,25 @@
 		"text": "My name is ____. What's your name?",
 		"options": [
 			{
-				"text": "My name is ____. What do you do?"
+				"text": "My name is ____. What do you do?",
+				"next": "start"
 			},
 			{
-				"text": "My name is ____. How do you know ____"
+				"text": "My name is ____. How do you know ____",
+				"next": "start"
+			}
+		]
+	},
+	"unsure_response": {
+		"text": "Bruh",
+		"options": [
+			{
+				"text": "?",
+				"next": "start"
+			},
+			{
+				"text": "???",
+				"next": "start"
 			}
 		]
 	}

@@ -15,7 +15,8 @@ func _input(event: InputEvent) -> void:
 		if dialogue.visible == false:
 			dialogue.visible = true
 			for i in range(len(dialogue_options)):
-				var dialogue_option = dialogue_options[i]
+				var dialogue_option: DialogueOption = dialogue_options[i]
+				dialogue_option.set_next(dialogue_dict[current_dialogue_id]["options"][i]["next"])
 				dialogue_option.text = dialogue_dict[current_dialogue_id]["options"][i]["text"]
 				dialogue_option.visible = true
 
@@ -24,6 +25,7 @@ func move_dialogue(id: String):
 	dialogue.text = dialogue_dict[current_dialogue_id]["text"]
 	for i in range(len(dialogue_options)):
 		var dialogue_option = dialogue_options[i]
+		dialogue_option.set_next(dialogue_dict[current_dialogue_id]["options"][i]["next"])
 		dialogue_option.text = dialogue_dict[current_dialogue_id]["options"][i]["text"]
 
 func read_json(path: String):
