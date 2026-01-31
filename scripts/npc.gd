@@ -14,7 +14,6 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		if dialogue.visible == false:
 			dialogue.visible = true
-		else:
 			for i in range(len(dialogue_options)):
 				var dialogue_option = dialogue_options[i]
 				dialogue_option.text = dialogue_dict[current_dialogue_id]["options"][i]["text"]
@@ -22,10 +21,10 @@ func _input(event: InputEvent) -> void:
 
 func move_dialogue(id: String):
 	current_dialogue_id = id
-	dialogue.visible = false
 	dialogue.text = dialogue_dict[current_dialogue_id]["text"]
-	for dialogue_option in dialogue_options:
-		dialogue_option.visible = false
+	for i in range(len(dialogue_options)):
+		var dialogue_option = dialogue_options[i]
+		dialogue_option.text = dialogue_dict[current_dialogue_id]["options"][i]["text"]
 
 func read_json(path: String):
 	if !FileAccess.file_exists(path):

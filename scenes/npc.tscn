@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://drqhwa4g01bar"]
 
-[ext_resource type="Script" uid="uid://dpk2ea8gr8iwr" path="res://npc.gd" id="1_ul7y6"]
-[ext_resource type="Texture2D" uid="uid://mlwc4tky4q1e" path="res://icon.svg" id="2_bc6q4"]
-[ext_resource type="Script" uid="uid://q8vr6b8h2kso" path="res://dialogue.gd" id="3_mcvl2"]
-[ext_resource type="PackedScene" uid="uid://jv5mfe56m5mb" path="res://dialogue_btn.tscn" id="4_d61ma"]
+[ext_resource type="Script" uid="uid://dpk2ea8gr8iwr" path="res://scripts/npc.gd" id="1_ul7y6"]
+[ext_resource type="Texture2D" uid="uid://mlwc4tky4q1e" path="res://art/icon.svg" id="2_bc6q4"]
+[ext_resource type="Script" uid="uid://q8vr6b8h2kso" path="res://scripts/dialogue.gd" id="3_mcvl2"]
+[ext_resource type="PackedScene" uid="uid://jv5mfe56m5mb" path="res://scenes/dialogue_btn.tscn" id="4_d61ma"]
 
 [node name="NPC" type="Node2D" unique_id=795824750 node_paths=PackedStringArray("dialogue_options")]
 script = ExtResource("1_ul7y6")
