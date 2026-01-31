@@ -9,6 +9,10 @@ func _init():
 
 func addToSus(amount : float) -> void:
 	susLevel += amount
+	susLevel = min(susLevel, maxSusLevel)
+
+func percentSus() -> float:
+	return susLevel / maxSusLevel
 	
 func gameIsOver():
 	return susLevel >= maxSusLevel
