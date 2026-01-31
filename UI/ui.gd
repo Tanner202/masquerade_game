@@ -1,6 +1,6 @@
 class_name UISystem
 
-extends Control
+extends CanvasLayer
 
 enum UIState {DEFAULT, NOTES}
 
