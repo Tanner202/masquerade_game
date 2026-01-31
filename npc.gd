@@ -76,11 +76,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		player_in_interaction_range = true
 		player = body
 		interaction_prompt.visible = true
-		print('foo')
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == 'Player':
 		player_in_interaction_range = false
 		player = null
 		interaction_prompt.visible = false
-		print('bar')
