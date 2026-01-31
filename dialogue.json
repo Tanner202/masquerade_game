@@ -1,0 +1,26 @@
+{
+	"start": {
+		"text": "Hello there!",
+		"options": [
+			{
+				"text": "Hi.",
+				"next": "unsure_response"
+			},
+			{
+				"text": "Hello! What's your name?",
+				"next": "name_response"
+			}
+		]
+	},
+	"name_response": {
+		"text": "My name is ____. What's your name?",
+		"options": [
+			{
+				"text": "My name is ____. What do you do?"
+			},
+			{
+				"text": "My name is ____. How do you know ____"
+			}
+		]
+	}
+}
