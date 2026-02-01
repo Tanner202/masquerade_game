@@ -18,7 +18,6 @@ func _ready():
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * speed
-	animated_sprite_2d.play()
 
 func _physics_process(delta):
 	if not can_move:
