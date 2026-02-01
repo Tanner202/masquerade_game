@@ -1,6 +1,6 @@
 {
   "start": {
-	"text": "Yes, but I prefer looking at the butterflies.",
+	"text": "I love this party, but I prefer looking at the butterflies.",
 	"options": [
 	  { "text": "Butterflies?", "target_id": "explain_butterflies" }
 	]
@@ -12,9 +12,9 @@
 	]
   },
   "list_butterflies": {
-	"text": "Red admiral, chocolate argus, painted lady. I love them all!",
+	"text": "Red admiral, **chocolate argus**, painted lady. I love them all!",
 	"options": [
-	  { "text": "Ok... [STAB]", "target_id": "death_node" }
+	  { "text": "Ok... [STAB]", "action_trigger": "trigger_stab_butterfly" }
 	]
   }
 }
