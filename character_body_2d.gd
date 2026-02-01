@@ -22,8 +22,8 @@ func _physics_process(delta):
 		return
 	if velocity == Vector2.ZERO:
 		audioPlayer.stop()
-		if animated_sprite_2d.animation != "stab" or !animated_sprite_2d.is_playing():
-			animated_sprite_2d.play("default")
+		if animated_sprite_2d.animation != "stab":
+			animated_sprite_2d.stop()
 	elif !audioPlayer.playing:
 		audioPlayer.play()
 		animated_sprite_2d.play("walk")
