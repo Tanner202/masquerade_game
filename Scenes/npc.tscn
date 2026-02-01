@@ -69,5 +69,8 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1932924666]
 shape = SubResource("RectangleShape2D_bc6q4")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=437394876]
+animation = &""
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
