@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://khnqw7mjp1lt" path="res://character_body_2d.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://t1pns0jgjllt" path="res://Tux-1.png.png" id="2_onrkg"]
+[ext_resource type="AudioStream" uid="uid://biqr0vmkla61d" path="res://Audio/Ballroom Walking.wav" id="3_i3pqv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(21, 9)
@@ -18,3 +19,6 @@ shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=2136956247]
 texture = ExtResource("2_onrkg")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player" unique_id=1587239315]
+stream = ExtResource("3_i3pqv")
