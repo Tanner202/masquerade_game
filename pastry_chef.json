@@ -1,45 +1,45 @@
 {
   "start": {
-    "text": "Isn't it outrageous that the sweets at this masquerade are this bitter?",
-    "options": [
-      { "text": "They are?", "target_id": "complaint" }
-    ]
+	"text": "Isn't it outrageous that the sweets at this masquerade are this bitter?",
+	"options": [
+	  { "text": "They are?", "target_id": "complaint" }
+	]
   },
   "complaint": {
-    "text": "Absolutely. They're not sweet at all! I hear the good stuff is still in the kitchen.",
-    "options": [
-      { "text": "Actually, there's a butterfly garden outside. There's a butterfly called...", "target_id": "butterfly_quiz" }
-    ]
+	"text": "Absolutely. They're not sweet at all! I hear the good stuff is still in the kitchen.",
+	"options": [
+	  { "text": "Actually, there's a butterfly garden outside. There's a butterfly called...", "target_id": "butterfly_quiz" }
+	]
   },
   "butterfly_quiz": {
-    "text": "[He looks at you expectantly]",
-    "options": [
-      {
-        "text": "Red admiral",
-        "target_id": "wrong_choice_loop",
-        "add_suspicion": 0.1
-      },
-      {
-        "text": "Chocolate argus",
-        "target_id": "correct_butterfly"
-      },
-      {
-        "text": "Painted lady",
-        "target_id": "wrong_choice_loop",
-        "add_suspicion": 0.1
-      }
-    ]
+	"text": "[He looks at you expectantly]",
+	"options": [
+	  {
+		"text": "Red admiral",
+		"target_id": "wrong_choice_loop",
+		"add_suspicion": 0.5
+	  },
+	  {
+		"text": "Chocolate argus",
+		"target_id": "correct_butterfly"
+	  },
+	  {
+		"text": "Painted lady",
+		"target_id": "wrong_choice_loop",
+		"add_suspicion": 0.1
+	  }
+	]
   },
   "wrong_choice_loop": {
-    "text": "Okay... How does that help me?",
-    "options": [
-      { "text": "Wait, I meant...", "target_id": "butterfly_quiz" }
-    ]
+	"text": "Okay... How does that help me?",
+	"options": [
+	  { "text": "Wait, I meant...", "target_id": "butterfly_quiz" }
+	]
   },
   "correct_butterfly": {
-    "text": "Really? That's kind of gross... But if it's chocolate, let's go then!",
-    "options": [
-      { "text": "Follow me to the balcony!", "action_trigger": "follow" }
-    ]
+	"text": "Really? That's kind of gross... But if it's chocolate, let's go then!",
+	"options": [
+	  { "text": "Follow me to the balcony!", "action_trigger": "follow" }
+	]
   }
 }

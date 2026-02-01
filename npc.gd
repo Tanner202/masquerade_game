@@ -34,6 +34,8 @@ var just_started_wandering = false
 var default_animation: String = "default"
 
 func _ready() -> void:
+	add_to_group("npcs")
+	
 	start_position = global_position
 	
 	nav_agent.path_desired_distance = 10.0
@@ -176,6 +178,8 @@ func start_interaction():
 	interaction_prompt.visible = false
 	current_state = State.INTERACT
 	
+	hide_all_characters()
+	
 	var interaction_instance = INTERACTION_SCENE.instantiate()
 	
 	get_tree().root.add_child(interaction_instance)
@@ -186,6 +190,8 @@ func start_interaction():
 
 func end_interaction(action_trigger: String = ""):
 	is_interacting = false
+	
+	show_all_characters()
 	
 	match action_trigger:
 		"follow":
@@ -199,14 +205,21 @@ func end_interaction(action_trigger: String = ""):
 	if player:
 		player.can_move = true
 
-#func move_dialogue(id: String):
-	#current_dialogue_id = id
-	#dialogue.visible = false
-	#if player_in_interaction_range:
-		#interaction_prompt.visible = true
-	#dialogue.text = dialogue_dict[current_dialogue_id]["text"]
-	#for dialogue_option in dialogue_options:
-		#dialogue_option.visible = false
+func hide_all_characters():
+	# hide all npcs
+	for npc in get_tree().get_nodes_in_group("npcs"):
+		npc.visible = false
+	# hide player
+	if player:
+		player.get_parent().visible = false
+
+func show_all_characters():
+	# show all npcs
+	for npc in get_tree().get_nodes_in_group("npcs"):
+		npc.visible = true
+	# show player
+	if player:
+		player.get_parent().visible = true
 
 func read_json(path: String):
 	if !FileAccess.file_exists(path):
