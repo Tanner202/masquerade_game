@@ -2,12 +2,33 @@ class_name GameController
 
 extends Node
 
+var seenIntroScroll = false
+var player
 var ui : UISystem;
 var gameState : GameState = GameState.new()
 const LOSE_SCENE_NAME = "res://LoseScene.tscn"
 
 func _init():
 	pass
+
+func setPlayer(givenPlayer : Player):
+	player = givenPlayer
+	player.can_move = false
+	
+	# Quick check to make sure UI is set before finishing setting player
+	while (ui == null):
+		await get_tree().process_frame
+	
+	if (not seenIntroScroll):
+		seenIntroScroll = true
+		ui.setUI(UISystem.UIState.INTRO_SCROLL)
+		ui.setExitIntroButton(
+			func (): 
+				player.can_move = true
+				ui.setUI(UISystem.UIState.DEFAULT)
+		)
+	else:
+		player.can_move = true
 
 func setUI(newUI : UISystem):
 	ui = newUI
@@ -23,3 +44,6 @@ func raiseSus(amount : float) -> void:
 func check_lose() -> void:
 	if (gameState.gameIsOver()):
 		get_tree().change_scene_to_file(LOSE_SCENE_NAME)
+
+func canInteract():
+	return player.can_move

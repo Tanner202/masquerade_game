@@ -1,9 +1,14 @@
 extends CharacterBody2D
 
+class_name Player
+
 @export var speed = 100
 
 var can_move = true
 @onready var audioPlayer = $AudioStreamPlayer2D
+
+func _ready():
+	Controller.setPlayer(self)
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")

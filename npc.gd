@@ -116,7 +116,7 @@ func pick_new_wander_state():
 	nav_agent.target_position = target_pos
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and player_in_interaction_range and not is_interacting:
+	if event.is_action_pressed("interact") and player_in_interaction_range and not is_interacting and Controller.canInteract():
 		start_interaction()
 
 func start_interaction():

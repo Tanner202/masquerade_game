@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://by8d7kcofyw65"]
 
 [ext_resource type="Script" uid="uid://cxwi3ujbbuahn" path="res://UI/ui.gd" id="1_6dd3c"]
+[ext_resource type="Texture2D" uid="uid://b1j177tn1q6ur" path="res://Art/Scroll.png" id="2_dhe1o"]
 
 [sub_resource type="Gradient" id="Gradient_dhe1o"]
 colors = PackedColorArray(0.1981962, 0.57650656, 0.46861118, 1, 0, 0.6472938, 0.5441137, 1)
@@ -20,12 +21,85 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_6dd3c"]
 gradient = SubResource("Gradient_pa3ot")
 
-[node name="UI" type="CanvasLayer" unique_id=776849873 node_paths=PackedStringArray("defaultUIHolder", "susBar", "notesUIHolder")]
+[node name="UI" type="CanvasLayer" unique_id=776849873 node_paths=PackedStringArray("defaultUIHolder", "susBar", "notesUIHolder", "introUIHolder", "exitIntroButton")]
 layer = 2
 script = ExtResource("1_6dd3c")
 defaultUIHolder = NodePath("DefaultUI")
 susBar = NodePath("DefaultUI/SuspicionBoxHolder/SuspicionBox/BoxHolder/InnerBoxHolder/TextureProgressBar")
 notesUIHolder = NodePath("NotesUI")
+introUIHolder = NodePath("StartUI")
+exitIntroButton = NodePath("StartUI/StartButton")
+
+[node name="StartUI" type="Control" parent="." unique_id=381112282]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="StartUI" unique_id=721981635]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.47058824)
+
+[node name="TextureRect" type="TextureRect" parent="StartUI" unique_id=697335664]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dhe1o")
+metadata/_edit_lock_ = true
+
+[node name="StartButton" type="Button" parent="StartUI" unique_id=350087836]
+modulate = Color(0.76229876, 0.26487815, 0.44984293, 1)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 152.0
+offset_top = -84.0
+offset_right = 300.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="StartUI/StartButton" unique_id=430994838]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "[color=white][font_size=20][wave]Continue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="StartUI" unique_id=1571789786]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 54.0
+offset_right = 401.0
+offset_bottom = 261.0
+bbcode_enabled = true
+text = "[color=black][font_size=17]Here’s a knife. 
+
+I heard you have a [wave]special[/wave] ability that will come into use. You know what you have to do. 
+
+XOXO,
+[shake]your assassin leader.[/shake]"
 
 [node name="DefaultUI" type="Control" parent="." unique_id=641941266]
 layout_mode = 3
@@ -35,6 +109,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="SuspicionBoxHolder" type="Control" parent="DefaultUI" unique_id=1434758147]
 layout_mode = 1
@@ -75,6 +150,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="InnerBoxHolder" type="Control" parent="DefaultUI/SuspicionBoxHolder/SuspicionBox/BoxHolder" unique_id=1455817479]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 5.0
@@ -123,6 +199,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="NotesUI" unique_id=256505950]
 layout_mode = 1
