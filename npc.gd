@@ -1,5 +1,7 @@
 class_name NPC extends CharacterBody2D
 
+@export var npcID : String
+
 # movement configs
 @export var movement_speed: float = 60.0
 @export var wander_radius: float = 300.0 # max roaming distance from start point
@@ -259,9 +261,12 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 			player = null
 
 func kill():
+	if npcID == "PeacockLady":
+		sprite.play("burn")
+		await get_tree().create_timer(1).timeout
+	if npcID == "BW":
+		sprite.play("death")
+		await get_tree().create_timer(1).timeout
+		
 	current_state = State.DEAD
 	queue_free()
-
-func shove():
-	if name == "PeacockLady":
-		sprite.play("burn")
