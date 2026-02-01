@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://b5w6w48f2ofyt"]
+
+[ext_resource type="Texture2D" uid="uid://drc1c4ms67egk" path="res://final-fireplace-room.png" id="1_dgtb2"]
+[ext_resource type="Script" uid="uid://baobg2g7ryl5l" path="res://Scenes/start_scene.gd" id="1_t5ln1"]
+
+[node name="StartScene" type="Control" unique_id=696968243 node_paths=PackedStringArray("startButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t5ln1")
+startButton = NodePath("ImageRect/ColorRect2/Button")
+
+[node name="ImageRect" type="TextureRect" parent="." unique_id=9632559]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_dgtb2")
+
+[node name="ColorRect2" type="ColorRect" parent="ImageRect" unique_id=265246422]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7411765)
+
+[node name="TextHolder" type="Control" parent="ImageRect/ColorRect2" unique_id=2066159339]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ImageRect/ColorRect2/TextHolder" unique_id=883438732]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[font_size=32][wave][outline_color=black][outline_size=10]Play Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="ImageRect/ColorRect2" unique_id=455009019]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 168.0
+offset_right = 407.0
+offset_bottom = 215.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ImageRect/ColorRect2/Button" unique_id=991508229]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+bbcode_enabled = true
+text = "[font_size=16]Start"
+horizontal_alignment = 1
+vertical_alignment = 1
