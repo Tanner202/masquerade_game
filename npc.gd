@@ -256,3 +256,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		player_in_interaction_range = false
 		if current_state != State.FOLLOW:
 			player = null
+
+func shove():
+	if name == "PeacockLady":
+		sprite.play("burn")
