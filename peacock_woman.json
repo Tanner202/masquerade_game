@@ -12,7 +12,7 @@
 	"text": "...",
 	"options": [
 	  {
-		"text": "Err.. you must be missing your sock...??",
+		"text": "You must be missing your sock!",
 		"target_id": "rhyme_part_2",
 		"add_suspicion": 0.15
 	  },
@@ -64,13 +64,9 @@
 	"options": [
 	  {
 		"text": "Catch them if you can! Or else they'll get a tan!",
-		"target_id": "toss_urn",
+		"target_id": "end",
 		"action_trigger": "throw_urn_fire"
 	  }
 	]
-  },
-  "toss_urn": {
-	"text": "NOO000000!!!!!",
-	"options": []
   }
 }

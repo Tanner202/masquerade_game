@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" format=3 uid="uid://cj65ts7voslr6"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://bo0ranvre73vt"]
 
 [ext_resource type="Texture2D" uid="uid://i12fjedwmb0s" path="res://Art/Jester_Juggling.png" id="1_eamyu"]
 
@@ -35,5 +35,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 6.0
 }]

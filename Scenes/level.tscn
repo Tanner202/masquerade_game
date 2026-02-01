@@ -4,18 +4,28 @@
 [ext_resource type="PackedScene" uid="uid://drqhwa4g01bar" path="res://Scenes/npc.tscn" id="1_u52ul"]
 [ext_resource type="PackedScene" uid="uid://doh7rsbfeuigd" path="res://player.tscn" id="2_vonw3"]
 [ext_resource type="PackedScene" uid="uid://by8d7kcofyw65" path="res://UI/UI.tscn" id="3_oi3di"]
-[ext_resource type="SpriteFrames" uid="uid://dryatghlf3t4p" path="res://Art/butterfly_lady.tres" id="3_oqgf2"]
-[ext_resource type="Texture2D" uid="uid://c2sxs75q7c30t" path="res://butterfly lady front.png" id="4_ha31o"]
 [ext_resource type="SpriteFrames" uid="uid://df1vrjnyegbs3" path="res://Art/player.tres" id="5_ha31o"]
+[ext_resource type="Texture2D" uid="uid://cga1xe4w4iaic" path="res://Peacock_Lady_1.png" id="5_pa6b8"]
 [ext_resource type="Texture2D" uid="uid://giwyyne7wj4l" path="res://Placeholder.png" id="6_pa6b8"]
 [ext_resource type="PackedScene" path="res://Scenes/door.tscn" id="7_bvt00"]
 [ext_resource type="Script" uid="uid://cev2h4qyjq0tx" path="res://audio_manager.gd" id="10_oqgf2"]
 [ext_resource type="Script" path="res://transition_manager.gd" id="11_qxfql"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_crh0w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pa6b8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1ainy"]
-vertices = PackedVector2Array(488.40625, 182.99219, 527.1406, 181, 597.4219, 183.60938, 591.1797, 290.52344, 570.21875, 319.8828, 531.1328, 326.9922, 451.75, 221.17969, 153.61719, 226.38281, 162.36719, 171.88281, 175.39063, 173.17969, 183.32813, 220.78125, 59.070313, 324.85938, 31.453125, 311.04688, 19.140625, 295.67188, 21.609375, 236.29688, 90.75, 323, 230.25781, 228, 400.60156, 227, 462.57813, 183.77344)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 12, 13, 14, 7, 15), PackedInt32Array(5, 15, 7, 10, 16), PackedInt32Array(5, 16, 17), PackedInt32Array(5, 17, 6), PackedInt32Array(6, 18, 0)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(5, 214, 9, 299, 25, 319, 57, 335, 91, 333, 532, 337, 576, 329, 601, 294, 608, 174, 527, 171, 488, 173, 455, 174, 444, 212, 400, 217, 231, 218, 192, 212, 184, 164, 154, 161, 145, 217)])
+vertices = PackedVector2Array(90.75, 323, 69.703125, 324.22656, 70.828125, 319.22656, 91.84375, 305.8672, 526.1172, 326.9375, 118, 249.50781, 154.22656, 222.60156, 183.32813, 220.78125, 230.25781, 228, 162.36719, 171.88281, 175.39063, 173.17969, 400.60156, 227, 538.0469, 305.3203, 451.75, 221.17969, 538.9922, 262.1328, 535.1875, 198.59375, 462.57813, 183.77344, 488.40625, 182.99219, 522.1875, 181.25781)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5, 6, 7, 8), PackedInt32Array(6, 9, 10, 7), PackedInt32Array(4, 8, 11), PackedInt32Array(12, 4, 11, 13, 14), PackedInt32Array(15, 14, 13, 16, 17), PackedInt32Array(15, 17, 18)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(110, 243, 84, 299, 62, 313, 57, 335, 91, 333, 532, 337, 548, 308, 549, 262, 545, 195, 527, 171, 488, 173, 455, 174, 444, 212, 400, 217, 231, 218, 192, 212, 184, 164, 154, 161, 145, 217)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bvt00"]
 size = Vector2(248, 188)
@@ -30,15 +40,16 @@ offset_bottom = 360.0
 texture = ExtResource("1_oqgf2")
 expand_mode = 2
 
-[node name="ButterflyWoman" parent="." unique_id=795824750 instance=ExtResource("1_u52ul")]
-position = Vector2(188, 263)
+[node name="PeacockWoman" parent="." unique_id=598578227 instance=ExtResource("1_u52ul")]
+position = Vector2(260, 181)
 scale = Vector2(2, 2)
-sprite_frames = ExtResource("3_oqgf2")
-portrait_texture = ExtResource("4_ha31o")
-dialogue_filepath = "res://butterfly_woman.json"
+movement_speed = 0.0
+sprite_frames = SubResource("SpriteFrames_crh0w")
+portrait_texture = ExtResource("5_pa6b8")
+dialogue_filepath = "res://peacock_woman.json"
 
 [node name="PastryChef" parent="." unique_id=74179338 instance=ExtResource("1_u52ul")]
-position = Vector2(557, 124)
+position = Vector2(464, 208)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("5_ha31o")
 required_flag = "bw_killed"
@@ -52,13 +63,17 @@ scale = Vector2(2, 2)
 [node name="UI" parent="." unique_id=318653403 instance=ExtResource("3_oi3di")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2010469749]
-visible = false
 position = Vector2(8, -10)
 navigation_polygon = SubResource("NavigationPolygon_1ainy")
 
 [node name="LeftDoor" parent="." unique_id=1393553521 instance=ExtResource("7_bvt00")]
-position = Vector2(0, 188)
-room_path = "res://Scenes/room2.tscn"
+position = Vector2(34, 188)
+room_path = "res://Scenes/ballroom.tscn"
+
+[node name="RightDoor" parent="." unique_id=1602997328 instance=ExtResource("7_bvt00")]
+position = Vector2(612, 226)
+room_path = "res://Scenes/balcony.tscn"
+target_door = "LeftDoor"
 
 [node name="LevelCollisions" type="Node2D" parent="." unique_id=671549185]
 visible = false

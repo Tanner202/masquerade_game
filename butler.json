@@ -1,26 +1,26 @@
 {
   "start": {
-    "text": "Oh, hello.",
-    "options": [
-      { "text": "What's with the ladder?", "target_id": "explain_ladder" }
-    ]
+	"text": "Oh, hello.",
+	"options": [
+	  { "text": "What's with the ladder?", "target_id": "explain_ladder" }
+	]
   },
   "explain_ladder": {
-    "text": "I will be fixing the chandelier after I finish dusting. Someone complained that it was about to fall.",
-    "options": [
-      { "text": "Interesting...", "target_id": "cat_appears", "action_trigger": "spawn_cat" }
-    ]
+	"text": "I will be fixing the chandelier after I finish dusting. Someone complained that it was about to fall.",
+	"options": [
+	  { "text": "Interesting...", "target_id": "cat_appears", "action_trigger": "spawn_cat" }
+	]
   },
   "cat_appears": {
-    "text": "Oh my god! Stay back, foul beast!",
-    "options": [
-      { "text": "You're scared of cats?", "target_id": "allergy_reveal" }
-    ]
+	"text": "Oh my god! Stay back, foul beast!",
+	"options": [
+	  { "text": "You're scared of cats?", "target_id": "allergy_reveal" }
+	]
   },
   "allergy_reveal": {
-    "text": "Yes, I am deathly allergic.",
-    "options": [
-      { "text": "Interesting...", "action_trigger": "enable_feather_interaction" }
-    ]
+	"text": "Yes, I am deathly allergic.",
+	"options": [
+	  { "text": "Interesting...", "action_trigger": "enable_feather_interaction" }
+	]
   }
 }

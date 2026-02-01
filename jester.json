@@ -1,45 +1,45 @@
 {
   "start": {
-    "text": "Pastry chef! Sing with me! I hope you are not tone deaf.",
-    "options": [
-      { "text": "No thanks...", "target_id": "bad_singing" }
-    ]
+	"text": "Pastry chef! Sing with me! I hope you are not tone deaf.",
+	"options": [
+	  { "text": "No thanks...", "target_id": "bad_singing" }
+	]
   },
   "bad_singing": {
-    "text": "You're right, your singing could cause mayhem! Fire, hell, and brimstone, that would be a gem! Pastry chef, have you brought me any sweets? The only food this blasted party has are deviled eggs and minced meats.",
-    "options": [
-      { "text": "Yeah, actually, I do. The good stuff is in the...", "target_id": "location_choice" }
-    ]
+	"text": "You're right, your singing could cause mayhem! Fire, hell, and brimstone, that would be a gem! Pastry chef, have you brought me any sweets? The only food this blasted party has are deviled eggs and minced meats.",
+	"options": [
+	  { "text": "Yeah, actually, I do. The good stuff is in the...", "target_id": "location_choice" }
+	]
   },
   "location_choice": {
-    "text": "[He waits for directions]",
-    "options": [
-      {
-        "text": "Kitchen",
-        "target_id": "success_lure"
-      },
-      {
-        "text": "Balcony",
-        "target_id": "wrong_location",
-        "add_suspicion": 0.15
-      },
-      {
-        "text": "Ballroom",
-        "target_id": "wrong_location",
-        "add_suspicion": 0.15
-      }
-    ]
+	"text": "[He waits for directions]",
+	"options": [
+	  {
+		"text": "Kitchen",
+		"target_id": "success_lure"
+	  },
+	  {
+		"text": "Balcony",
+		"target_id": "wrong_location",
+		"add_suspicion": 0.15
+	  },
+	  {
+		"text": "Ballroom",
+		"target_id": "wrong_location",
+		"add_suspicion": 0.15
+	  }
+	]
   },
   "wrong_location": {
-    "text": "That doesn't sound right! Are you trying to give me a fright?",
-    "options": [
-      { "text": "My mistake, I meant the Kitchen.", "target_id": "success_lure" }
-    ]
+	"text": "That doesn't sound right! Are you trying to give me a fright?",
+	"options": [
+	  { "text": "My mistake, I meant the Kitchen.", "target_id": "success_lure" }
+	]
   },
   "success_lure": {
-    "text": "Hooray! I hope you will provide me with an entire tray.",
-    "options": [
-      { "text": "Follow me and I'll give them to you!.", "action_trigger": "trigger_jester_following" }
-    ]
+	"text": "Hooray! I hope you will provide me with an entire tray.",
+	"options": [
+	  { "text": "Follow me and I'll give them to you!.", "action_trigger": "follow" }
+	]
   }
 }

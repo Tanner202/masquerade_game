@@ -36,7 +36,6 @@ var just_started_wandering = false
 var default_animation: String = "default"
 
 func _ready() -> void:
-	canInteractTextCheck()
 	add_to_group("npcs")
 	
 	start_position = global_position
@@ -47,6 +46,7 @@ func _ready() -> void:
 	if sprite_frames and sprite:
 		sprite.sprite_frames = sprite_frames
 		sprite.animation = default_animation
+		sprite.play(default_animation)
 		
 	if dialogue_filepath == "":
 		printerr("No dialogue json file for: " + name)
@@ -59,19 +59,16 @@ func _ready() -> void:
 	
 	call_deferred("movement_setup")
 	
-func canInteractTextCheck():
-	while (true):
-		if can_interact():
-			interaction_prompt.show() 
-		else:
-			interaction_prompt.hide()
-		await get_tree().process_frame
-	
 func movement_setup():
 	await get_tree().physics_frame
 	pick_new_wander_state()
 
 func _physics_process(delta):
+	if can_interact():
+		interaction_prompt.show() 
+	else:
+		interaction_prompt.hide()
+	
 	if is_interacting:
 		current_state = State.INTERACT
 
@@ -264,3 +261,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func kill():
 	current_state = State.DEAD
 	queue_free()
+
+func shove():
+	if name == "PeacockLady":
+		sprite.play("burn")

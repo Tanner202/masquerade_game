@@ -4,7 +4,8 @@ const MAIN_THEME = preload("res://Audio/maintheme.wav")
 const BALLROOM = preload("res://Audio/ballroom.wav")
 
 func _ready() -> void:
-	play_music(MAIN_THEME)
+	if get_tree().current_scene.name == "Level":
+		play_music(MAIN_THEME)
 	get_tree().scene_changed.connect(_on_scene_changed)
 
 func play_sound(sfx: AudioStream, owner: Node2D):

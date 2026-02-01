@@ -33,6 +33,12 @@ func update_ui():
 	options_container.visible = false
 
 	var current_node = dialogue_data[current_id]
+	var raw_text = current_node[\"text\"]
+	
+	if raw_text.length() > 100:
+		dialogue_label.add_theme_font_size_override(\"normal_font_size\", 16)
+	else:
+		dialogue_label.add_theme_font_size_override(\"normal_font_size\", 24)
 	
 	# make **text** colored
 	var formatted_text = parse_highlights(current_node[\"text\"])
@@ -169,14 +175,14 @@ texture = ExtResource("4_wbtfb")
 
 [node name="DialogueLabel" type="RichTextLabel" parent="CanvasLayer/DialoguePanel" unique_id=143717098]
 layout_mode = 0
-offset_left = 38.0
-offset_top = 16.0
-offset_right = 362.0
-offset_bottom = 117.0
+offset_left = 36.0
+offset_top = 19.0
+offset_right = 356.0
+offset_bottom = 114.0
 theme_override_colors/default_color = Color(0.32941177, 0.1764706, 0, 1)
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
-text = "Bonjour. Comment ça va ?"
+text = "Bonjour. Comment ça va c"
 horizontal_alignment = 1
 vertical_alignment = 1
 
