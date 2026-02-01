@@ -8,9 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c2sxs75q7c30t" path="res://butterfly lady front.png" id="4_ha31o"]
 [ext_resource type="SpriteFrames" uid="uid://df1vrjnyegbs3" path="res://Art/player.tres" id="5_ha31o"]
 [ext_resource type="Texture2D" uid="uid://giwyyne7wj4l" path="res://Placeholder.png" id="6_pa6b8"]
-[ext_resource type="Script" uid="uid://co5qrwa7jymom" path="res://door.gd" id="7_8c0lf"]
-[ext_resource type="FontFile" uid="uid://ddqis61kyd6jj" path="res://Tiny5-Regular.ttf" id="8_754fn"]
-[ext_resource type="PackedScene" uid="uid://t5ia0oqdsy2d" path="res://Scenes/room2.tscn" id="8_bvt00"]
+[ext_resource type="PackedScene" uid="uid://cjb7oprk64uo3" path="res://Scenes/door.tscn" id="7_bvt00"]
 [ext_resource type="Script" uid="uid://cev2h4qyjq0tx" path="res://audio_manager.gd" id="10_oqgf2"]
 [ext_resource type="Script" uid="uid://bvbf7r63p0qxg" path="res://transition_manager.gd" id="11_qxfql"]
 
