@@ -34,6 +34,7 @@ var just_started_wandering = false
 var default_animation: String = "default"
 
 func _ready() -> void:
+	canInteractTextCheck()
 	add_to_group("npcs")
 	
 	start_position = global_position
@@ -55,6 +56,14 @@ func _ready() -> void:
 	interaction_prompt.visible = false
 	
 	call_deferred("movement_setup")
+	
+func canInteractTextCheck():
+	while (true):
+		if can_interact():
+			interaction_prompt.show() 
+		else:
+			interaction_prompt.hide()
+		await get_tree().process_frame
 	
 func movement_setup():
 	await get_tree().physics_frame
@@ -154,7 +163,7 @@ func pick_new_wander_state():
 	nav_agent.target_position = target_pos
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and player_in_interaction_range and not is_interacting:
+	if event.is_action_pressed("interact"):
 		if can_interact():
 			start_interaction()
 
@@ -165,8 +174,11 @@ func stop_following():
 	current_state = State.IDLE
 
 func can_interact() -> bool:
+	# can't interact if you are not in range or currently interacting
+	if (not player_in_interaction_range or is_interacting):
+		return false
 	# make sure you are able to move in topdown mode first
-	if Controller.canInteract():
+	if not Controller.canInteract():
 		return false
 	# make sure npc hasn't alr been done
 	if Controller.gameState.is_npc_completed(name):
@@ -203,8 +215,8 @@ func end_interaction(action_trigger: String = ""):
 			current_state = State.WANDER
 			pick_new_wander_state()
 	
-	if player_in_interaction_range and can_interact():
-		interaction_prompt.visible = true
+	#if player_in_interaction_range and can_interact():
+	#	interaction_prompt.visible = true
 	if player:
 		player.can_move = true
 
@@ -239,12 +251,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == 'Player':
 		player_in_interaction_range = true
 		player = body
-		if can_interact():
-			interaction_prompt.visible = true
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == 'Player':
 		player_in_interaction_range = false
 		if current_state != State.FOLLOW:
 			player = null
-		interaction_prompt.visible = false

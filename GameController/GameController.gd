@@ -49,4 +49,4 @@ func check_lose() -> void:
 		get_tree().change_scene_to_file(LOSE_SCENE_NAME)
 
 func canInteract():
-	return player.can_move
+	return player != null and player.can_move
