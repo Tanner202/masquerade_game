@@ -88,7 +88,7 @@ func _physics_process(delta):
 			sprite.play("default")
 			velocity = Vector2.ZERO # don't run away while mid interaciton
 		State.DEAD:
-			sprite.play("default")
+			#sprite.play("default")
 			velocity = Vector2.ZERO # dead people don't move (hopefully)
 			
 #	if current_state != State.IDLE and current_state != State.INTERACT:
@@ -266,13 +266,13 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 			player = null
 
 func kill():
+	current_state = State.DEAD
 	if npcID == "PL":
-		print("Got here")
+		print("Got here really")
 		sprite.play("burn")
 		await get_tree().create_timer(1).timeout
 	if npcID == "BW":
 		sprite.play("death")
 		await get_tree().create_timer(1).timeout
 		
-	current_state = State.DEAD
 	queue_free()
