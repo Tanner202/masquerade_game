@@ -3,93 +3,11 @@
 [ext_resource type="Script" uid="uid://khnqw7mjp1lt" path="res://character_body_2d.gd" id="1_onrkg"]
 [ext_resource type="SpriteFrames" uid="uid://df1vrjnyegbs3" path="res://Art/player.tres" id="3_hqtel"]
 [ext_resource type="AudioStream" uid="uid://biqr0vmkla61d" path="res://Audio/Ballroom Walking.wav" id="3_i3pqv"]
-[ext_resource type="Script" uid="uid://c7wrxbjynyfmv" path="res://SpriteOrderer.gd" id="4_hqtel"]
-[ext_resource type="Texture2D" uid="uid://c2sxs75q7c30t" path="res://butterfly lady front.png" id="5_b26j0"]
-[ext_resource type="Texture2D" uid="uid://dbbbv5017jnym" path="res://Art/Shadowman_stab (1).png" id="6_n7ghd"]
-[ext_resource type="Texture2D" uid="uid://d2xj5eteq60jl" path="res://Butterfly Lady-1.png.png" id="7_nvl01"]
-[ext_resource type="Texture2D" uid="uid://bp8i3b4aebi0k" path="res://Art/Shadowman_left_walk.png" id="8_ivps1"]
-[ext_resource type="Texture2D" uid="uid://c5e8h05hkc0jp" path="res://Art/Shadowman_up_down_walk.png" id="9_urp6f"]
+[ext_resource type="Script" path="res://SpriteOrderer.gd" id="4_hqtel"]
+[ext_resource type="SpriteFrames" uid="uid://dryatghlf3t4p" path="res://Art/butterfly_lady.tres" id="5_sweqy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(21, 9)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lsbmc"]
-atlas = ExtResource("6_n7ghd")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3p4tb"]
-atlas = ExtResource("6_n7ghd")
-region = Rect2(0, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8j4q1"]
-atlas = ExtResource("6_n7ghd")
-region = Rect2(64, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6yrfj"]
-atlas = ExtResource("6_n7ghd")
-region = Rect2(128, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c15um"]
-atlas = ExtResource("8_ivps1")
-region = Rect2(0, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ee5sr"]
-atlas = ExtResource("9_urp6f")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wbpcw"]
-atlas = ExtResource("9_urp6f")
-region = Rect2(0, 64, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bwjto"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_b26j0")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lsbmc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3p4tb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8j4q1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6yrfj")
-}],
-"loop": false,
-"name": &"stab",
-"speed": 6.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_nvl01")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c15um")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ee5sr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wbpcw")
-}],
-"loop": true,
-"name": &"walk_vertical",
-"speed": 5.0
-}]
 
 [node name="playerscene" type="Node2D" unique_id=1297024523]
 
@@ -111,6 +29,6 @@ sprite_frames = ExtResource("3_hqtel")
 script = ExtResource("4_hqtel")
 
 [node name="BWAnimatedSprite" type="AnimatedSprite2D" parent="Player" unique_id=283328263]
-sprite_frames = SubResource("SpriteFrames_bwjto")
+sprite_frames = ExtResource("5_sweqy")
 animation = &"walk"
 script = ExtResource("4_hqtel")

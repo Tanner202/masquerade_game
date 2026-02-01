@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b5w6w48f2ofyt"]
 
-[ext_resource type="Texture2D" uid="uid://drc1c4ms67egk" path="res://final-fireplace-room.png" id="1_dgtb2"]
 [ext_resource type="Script" uid="uid://baobg2g7ryl5l" path="res://Scenes/start_scene.gd" id="1_t5ln1"]
+[ext_resource type="Texture2D" uid="uid://clduam6dc60cy" path="res://balcony.png" id="2_t5ln1"]
 
 [node name="StartScene" type="Control" unique_id=696968243 node_paths=PackedStringArray("startButton")]
 layout_mode = 3
@@ -20,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_dgtb2")
+texture = ExtResource("2_t5ln1")
 
 [node name="ColorRect2" type="ColorRect" parent="ImageRect" unique_id=265246422]
 layout_mode = 1

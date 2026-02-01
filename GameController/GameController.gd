@@ -10,7 +10,7 @@ var curInteraction
 var curNPC : NPC
 var gameState : GameState = GameState.new()
 const LOSE_SCENE_NAME = "res://Scenes/LoseScene.tscn"
-const FIRST_SCENE_NAME = "res://Scenes/level.tscn"
+const FIRST_SCENE_NAME = "res://Scenes/balcony.tscn"
 
 func _init():
 	pass

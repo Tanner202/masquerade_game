@@ -16,7 +16,7 @@
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1ainy"]
 vertices = PackedVector2Array(42.703125, 195.96875, 44.171875, 173.10938, 89.65625, 186.4375, 315.59375, 181.89063, 310.85156, 123.14844, 434.85156, 124.86719, 435.64844, 133.71875, 408, 166.32813, 408, 211.97656, 88.13281, 337, 266.60156, 199.03125, 541.5078, 269.64844, 595.02344, 274.2578, 597.6172, 296.39063, 578.7422, 323.47656, 532.47656, 337.9922, 482.89844, 276.03906, 112.9375, 195.96094, 43.507813, 326.70313, 35.203125, 286.04688, 533.1172, 261.2578, 428.25, 233.42188, 15, 218.72656, 15, 265.85156)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6, 7), PackedInt32Array(3, 7, 8, 9, 10), PackedInt32Array(11, 12, 13, 14, 15, 9, 16), PackedInt32Array(2, 17, 9, 18, 19, 0), PackedInt32Array(16, 20, 11), PackedInt32Array(21, 16, 9), PackedInt32Array(8, 21, 9), PackedInt32Array(17, 10, 9), PackedInt32Array(22, 0, 19, 23)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(5, 214, 5, 270, 26, 291, 35, 335, 87, 347, 534, 348, 585, 332, 608, 299, 604, 265, 546, 260, 536, 250, 485, 265, 435, 226, 418, 208, 418, 170, 446, 137, 444, 115, 300, 113, 305, 175, 265, 189, 115, 186, 93, 177, 35, 160, 33, 191)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(62, 211, 67, 295, 59, 321, 74, 335, 87, 347, 534, 348, 585, 332, 608, 299, 604, 265, 546, 260, 536, 250, 485, 265, 435, 226, 418, 208, 418, 170, 446, 137, 444, 115, 300, 113, 305, 175, 265, 189, 115, 186, 93, 177, 72, 171, 69, 185)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0f350"]
 size = Vector2(71, 151)
@@ -30,7 +30,7 @@ texture = ExtResource("1_e67my")
 expand_mode = 2
 
 [node name="Jester" parent="." unique_id=795824750 instance=ExtResource("2_m7wml")]
-position = Vector2(107, 212)
+position = Vector2(164, 219)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("3_e67my")
 portrait_texture = ExtResource("4_m7wml")
@@ -50,7 +50,6 @@ scale = Vector2(2, 2)
 [node name="UI" parent="." unique_id=318653403 instance=ExtResource("6_3wjai")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2010469749]
-visible = false
 position = Vector2(8, -10)
 navigation_polygon = SubResource("NavigationPolygon_1ainy")
 
@@ -98,6 +97,10 @@ script = ExtResource("10_trbkl")
 position = Vector2(600, 266)
 room_path = "res://Scenes/level.tscn"
 target_door = "LeftDoor"
+
+[node name="LeftDoor" parent="." unique_id=60187689 instance=ExtResource("14_v5q2q")]
+position = Vector2(31, 215)
+room_path = "res://Scenes/balcony.tscn"
 
 [connection signal="body_entered" from="Door/Area2D" to="Door" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Door/Area2D" to="Door" method="_on_area_2d_body_exited"]

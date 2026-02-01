@@ -7,9 +7,9 @@
 [ext_resource type="SpriteFrames" uid="uid://df1vrjnyegbs3" path="res://Art/player.tres" id="5_ha31o"]
 [ext_resource type="Texture2D" uid="uid://cga1xe4w4iaic" path="res://Peacock_Lady_1.png" id="5_pa6b8"]
 [ext_resource type="Texture2D" uid="uid://giwyyne7wj4l" path="res://Placeholder.png" id="6_pa6b8"]
-[ext_resource type="PackedScene" path="res://Scenes/door.tscn" id="7_bvt00"]
+[ext_resource type="PackedScene" uid="uid://cjb7oprk64uo3" path="res://Scenes/door.tscn" id="7_bvt00"]
 [ext_resource type="Script" uid="uid://cev2h4qyjq0tx" path="res://audio_manager.gd" id="10_oqgf2"]
-[ext_resource type="Script" path="res://transition_manager.gd" id="11_qxfql"]
+[ext_resource type="Script" uid="uid://bvbf7r63p0qxg" path="res://transition_manager.gd" id="11_qxfql"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_crh0w"]
 animations = [{
@@ -70,11 +70,6 @@ navigation_polygon = SubResource("NavigationPolygon_1ainy")
 [node name="LeftDoor" parent="." unique_id=1393553521 instance=ExtResource("7_bvt00")]
 position = Vector2(34, 188)
 room_path = "res://Scenes/ballroom.tscn"
-
-[node name="RightDoor" parent="." unique_id=1602997328 instance=ExtResource("7_bvt00")]
-position = Vector2(612, 226)
-room_path = "res://Scenes/balcony.tscn"
-target_door = "LeftDoor"
 
 [node name="LevelCollisions" type="Node2D" parent="." unique_id=671549185]
 visible = false
