@@ -39,7 +39,7 @@
   "correct_butterfly": {
     "text": "Really? That's kind of gross... But if it's chocolate, let's go then!",
     "options": [
-      { "text": "Follow me to the balcony!", "action_trigger": "trigger_chef_following" }
+      { "text": "Follow me to the balcony!", "action_trigger": "follow" }
     ]
   }
 }
