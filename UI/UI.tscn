@@ -139,6 +139,7 @@ theme_override_fonts/font = ExtResource("2_dhe1o")
 text = "Space to interact"
 
 [node name="ToInfoButtonHolder" type="Control" parent="DefaultUI/VFlowContainer" unique_id=121464612]
+visible = false
 layout_mode = 2
 
 [node name="ToInfoButton" type="Button" parent="DefaultUI/VFlowContainer/ToInfoButtonHolder" unique_id=627071298]
