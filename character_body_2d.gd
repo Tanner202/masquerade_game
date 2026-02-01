@@ -15,7 +15,3 @@ func _physics_process(delta):
 		return
 	get_input()
 	move_and_slide()
-	
-	# prevent the guy from leaving the window
-	position.x = clamp(position.x, 32, 640 - 32)
-	position.y = clamp(position.y, 32, 360 - 32)

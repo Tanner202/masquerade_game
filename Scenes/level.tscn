@@ -16,7 +16,12 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7), Pa
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1, 217, -3, 300, 17, 321, 46, 341, 89, 350, 535, 351, 588, 340, 618, 294, 624, 217, 508, 213, 488, 173, 455, 174, 444, 212, 400, 217, 231, 218, 192, 212, 184, 164, 154, 161, 145, 217)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0f350"]
-size = Vector2(110, 151)
+size = Vector2(71, 151)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bvt00"]
+size = Vector2(248, 188)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bvt00"]
 
 [node name="Level" type="Node2D" unique_id=2083961112]
 
@@ -39,6 +44,7 @@ dialogue_filepath = "res://pastry_chef.json"
 npc_texture = ExtResource("3_f2txt")
 
 [node name="Player" parent="." unique_id=1297024523 instance=ExtResource("2_vonw3")]
+position = Vector2(352, 244)
 scale = Vector2(2, 2)
 
 [node name="UI" parent="." unique_id=318653403 instance=ExtResource("3_oi3di")]
@@ -57,7 +63,7 @@ room_scene = ExtResource("8_bvt00")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Area2D" unique_id=897292821]
-position = Vector2(45, 0.5)
+position = Vector2(25.5, 0.5)
 shape = SubResource("RectangleShape2D_0f350")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Door" unique_id=624979715]
@@ -71,6 +77,42 @@ offset_bottom = 23.0
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("8_754fn")
 text = "Space to interact "
+
+[node name="LevelCollisions" type="Node2D" parent="." unique_id=671549185]
+position = Vector2(323, 146)
+
+[node name="LevelCollision" type="StaticBody2D" parent="LevelCollisions" unique_id=381278146]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelCollisions/LevelCollision" unique_id=885735785]
+position = Vector2(10, -52)
+shape = SubResource("RectangleShape2D_bvt00")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelCollisions/LevelCollision" unique_id=1433925568]
+position = Vector2(-243, -99)
+shape = SubResource("RectangleShape2D_bvt00")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="LevelCollisions/LevelCollision" unique_id=1887871144]
+position = Vector2(228, -105)
+shape = SubResource("RectangleShape2D_bvt00")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="LevelCollisions/LevelCollision" unique_id=954212633]
+position = Vector2(-11, -146)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_bvt00")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="LevelCollisions/LevelCollision" unique_id=1942068199]
+position = Vector2(-324, 57)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_bvt00")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="LevelCollisions/LevelCollision" unique_id=709982570]
+position = Vector2(316, 57)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_bvt00")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="LevelCollisions/LevelCollision" unique_id=1224276941]
+position = Vector2(-11, 214)
+shape = SubResource("WorldBoundaryShape2D_bvt00")
 
 [connection signal="body_entered" from="Door/Area2D" to="Door" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Door/Area2D" to="Door" method="_on_area_2d_body_exited"]
