@@ -6,6 +6,8 @@ var story_flags: Array[String] = [] # storyline/progression flags
 var susLevel : float
 var maxSusLevel : float = 1
 
+var playerChar : Player.Char
+
 func complete_npc(npc_name: String) -> void:
 	if npc_name not in completed_npcs:
 		completed_npcs.append(npc_name)
@@ -30,6 +32,7 @@ func set_disguise(new_disguise: String):
 # constructor
 func _init():
 	susLevel = 0
+	playerChar = Player.Char.NONE
 
 func addToSus(amount : float) -> void:
 	susLevel += amount

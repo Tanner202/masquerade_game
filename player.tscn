@@ -28,6 +28,7 @@ stream = ExtResource("3_i3pqv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=168577717]
 sprite_frames = ExtResource("3_hqtel")
+animation = &"walk_vertical"
 script = ExtResource("4_hqtel")
 
 [node name="BWAnimatedSprite" type="AnimatedSprite2D" parent="Player" unique_id=283328263]
