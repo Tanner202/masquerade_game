@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://8mvl4y8lbpam"]
 
-[node name="LoseScene" type="Control" unique_id=696968243]
+[ext_resource type="Script" uid="uid://baobg2g7ryl5l" path="res://Scenes/start_scene.gd" id="1_o6134"]
+
+[node name="LoseScene" type="Control" unique_id=696968243 node_paths=PackedStringArray("startButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_o6134")
+startButton = NodePath("ColorRect/Button")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1973236307]
 layout_mode = 1
@@ -39,7 +43,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
-text = "[font_size=40][wave][outline_color=black][outline_size=10]You Lose!"
+text = "[font_size=32][wave][outline_color=black][outline_size=10]You Lose!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -60,6 +64,6 @@ grow_vertical = 2
 mouse_filter = 2
 mouse_force_pass_scroll_events = false
 bbcode_enabled = true
-text = "Restart?"
+text = "[font_size=16]Restart?"
 horizontal_alignment = 1
 vertical_alignment = 1

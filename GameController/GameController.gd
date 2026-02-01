@@ -7,6 +7,7 @@ var player
 var ui : UISystem;
 var gameState : GameState = GameState.new()
 const LOSE_SCENE_NAME = "res://Scenes/LoseScene.tscn"
+const FIRST_SCENE_NAME = "res://Scenes/level.tscn"
 
 func _init():
 	pass
@@ -46,7 +47,13 @@ func check_lose() -> void:
 		for child in get_tree().root.get_children():
 			if child.name == "InteractionScreen":
 				child.queue_free()
-		get_tree().change_scene_to_file(LOSE_SCENE_NAME)
+		loadScene(LOSE_SCENE_NAME)
 
 func canInteract():
 	return player != null and player.can_move
+
+func loadScene(sceneName : String):
+	get_tree().change_scene_to_file(sceneName)
+
+func loadFirstScene():
+	loadScene(FIRST_SCENE_NAME)
