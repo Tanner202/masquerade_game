@@ -12,7 +12,7 @@
 	"text": "...",
 	"options": [
 	  {
-		"text": "Err.. you must be missing your sock...??",
+		"text": "You must be missing your sock!",
 		"target_id": "rhyme_part_2",
 		"add_suspicion": 0.15
 	  },
