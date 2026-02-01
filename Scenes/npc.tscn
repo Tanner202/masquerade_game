@@ -3,15 +3,17 @@
 [ext_resource type="Script" uid="uid://dpk2ea8gr8iwr" path="res://npc.gd" id="1_ul7y6"]
 [ext_resource type="FontFile" uid="uid://ddqis61kyd6jj" path="res://Tiny5-Regular.ttf" id="3_bc6q4"]
 [ext_resource type="PackedScene" uid="uid://jv5mfe56m5mb" path="res://Scenes/dialogue_btn.tscn" id="4_d61ma"]
+[ext_resource type="Script" path="res://SpriteOrderer.gd" id="4_h1ryf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ul7y6"]
 size = Vector2(64, 66)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bc6q4"]
-size = Vector2(98, 98)
+size = Vector2(84, 82)
 
 [node name="NPC" type="CharacterBody2D" unique_id=598578227]
-collision_layer = 4
+collision_layer = 8
+collision_mask = 0
 script = ExtResource("1_ul7y6")
 
 [node name="Dialogue" type="Label" parent="." unique_id=1583389327]
@@ -71,6 +73,7 @@ shape = SubResource("RectangleShape2D_bc6q4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=437394876]
 animation = &""
+script = ExtResource("4_h1ryf")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

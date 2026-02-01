@@ -1,76 +1,76 @@
 {
   "start": {
-    "text": "...",
-    "options": [
-      {
-        "text": "You look like a peacock!",
-        "target_id": "rhyme_part_1"
-      }
-    ]
+	"text": "...",
+	"options": [
+	  {
+		"text": "You look like a peacock!",
+		"target_id": "rhyme_part_1"
+	  }
+	]
   },
   "rhyme_part_1": {
-    "text": "...",
-    "options": [
-      {
-        "text": "Err.. you must be missing your sock...??",
-        "target_id": "rhyme_part_2",
-        "add_suspicion": 0.15
-      },
-      {
-        "text": "Hope you don't get eaten by a croc!",
-        "target_id": "rhyme_part_2"
-      },
-      {
-        "text": "You look ready to join a flock!",
-        "target_id": "rhyme_part_2"
-      }
-    ]
+	"text": "...",
+	"options": [
+	  {
+		"text": "Err.. you must be missing your sock...??",
+		"target_id": "rhyme_part_2",
+		"add_suspicion": 0.15
+	  },
+	  {
+		"text": "Hope you don't get eaten by a croc!",
+		"target_id": "rhyme_part_2"
+	  },
+	  {
+		"text": "You look ready to join a flock!",
+		"target_id": "rhyme_part_2"
+	  }
+	]
   },
   "rhyme_part_2": {
-    "text": "Leave me, jester. I am mourning my birds.",
-    "options": [
-      {
-        "text": "What are you doing away from the party? Did you get too farty?",
-        "target_id": "explanation",
-        "add_suspicion": 0.1
-      },
-      {
-        "text": "What are you doing away from the party? Don't be so dishearty!",
-        "target_id": "explanation"
-      }
-    ]
+	"text": "Leave me, jester. I am mourning my birds.",
+	"options": [
+	  {
+		"text": "What are you doing away from the party? Did you get too farty?",
+		"target_id": "explanation",
+		"add_suspicion": 0.1
+	  },
+	  {
+		"text": "What are you doing away from the party? Don't be so dishearty!",
+		"target_id": "explanation"
+	  }
+	]
   },
   "explanation": {
-    "text": "I always carry their feathers with me and that blasted cat loves to play with them, so I came in here to hide from it.",
-    "options": [
-      {
-        "text": "Oh. I see. [Grab Urns]",
-        "target_id": "juggling_start",
-        "action_trigger": "grab_urns"
-      }
-    ]
+	"text": "I always carry their feathers with me and that blasted cat loves to play with them, so I came in here to hide from it.",
+	"options": [
+	  {
+		"text": "Oh. I see. [Grab Urns]",
+		"target_id": "juggling_start",
+		"action_trigger": "grab_urns"
+	  }
+	]
   },
   "juggling_start": {
-    "text": "?????",
-    "options": [
-      {
-        "text": "Look at me juggle! I hope you don't want to snuggle!",
-        "target_id": "juggling_taunt"
-      }
-    ]
+	"text": "?????",
+	"options": [
+	  {
+		"text": "Look at me juggle! I hope you don't want to snuggle!",
+		"target_id": "juggling_taunt"
+	  }
+	]
   },
   "juggling_taunt": {
-    "text": "STOP JUGGLING MY BABIES!!!",
-    "options": [
-      {
-        "text": "Catch them if you can! Or else they'll get a tan!",
-        "target_id": "toss_urn",
-        "action_trigger": "throw_urn_fire"
-      }
-    ]
+	"text": "STOP JUGGLING MY BABIES!!!",
+	"options": [
+	  {
+		"text": "Catch them if you can! Or else they'll get a tan!",
+		"target_id": "toss_urn",
+		"action_trigger": "throw_urn_fire"
+	  }
+	]
   },
   "toss_urn": {
-    "text": "NOO000000!!!!!",
-    "options": []
+	"text": "NOO000000!!!!!",
+	"options": []
   }
-},
+}
