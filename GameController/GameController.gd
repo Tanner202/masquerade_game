@@ -5,7 +5,7 @@ extends Node
 var ui : UISystem;
 var gameState : GameState = GameState.new()
 const LOSE_SCENE_NAME = "res://LoseScene.tscn"
-const FIRST_SCENE = "res://Level.tscn"
+const FIRST_SCENE = "res://Scenes/level.tscn"
 
 func _init():
 	pass

@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://d1ngfq0v5rxlb"]
+[gd_scene format=3 uid="uid://pxcvuue1r4h0"]
 
-[ext_resource type="Script" uid="uid://bhhlh84btoewk" path="res://start_scene.gd" id="1_xtwlf"]
+[ext_resource type="Script" path="res://start_scene.gd" id="1_xtwlf"]
 
 [node name="StartScene" type="Control" unique_id=696968243 node_paths=PackedStringArray("startButton")]
 layout_mode = 3
