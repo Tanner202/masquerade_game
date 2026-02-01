@@ -139,7 +139,7 @@ func end_interaction():
 		pick_new_wander_state()
 	
 	if player_in_interaction_range:
-		Controller.setCanTalk(true)#interaction_prompt.visible = true
+		Controller.addAsInteractable(self)#interaction_prompt.visible = true
 	if player:
 		player.can_move = true
 
@@ -167,10 +167,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == 'Player':
 		player_in_interaction_range = true
 		player = body
-		Controller.setCanTalk(true)#interaction_prompt.visible = true
+		Controller.addAsInteractable(self)#interaction_prompt.visible = true
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == 'Player':
 		player_in_interaction_range = false
 		player = null
-		Controller.setCanTalk(false)#interaction_prompt.visible = false
+		Controller.removeAsInteractable(self)#interaction_prompt.visible = false
