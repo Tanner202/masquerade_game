@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://brokcjaykjgj7"]
+[gd_scene format=3 uid="uid://tst0l5wsa0cu"]
 
-[ext_resource type="PackedScene" uid="uid://drqhwa4g01bar" path="res://npc.tscn" id="1_u52ul"]
+[ext_resource type="PackedScene" uid="uid://drqhwa4g01bar" path="res://Scenes/npc.tscn" id="1_u52ul"]
 [ext_resource type="Texture2D" uid="uid://d2xj5eteq60jl" path="res://Butterfly Lady-1.png.png" id="2_0b4ue"]
 [ext_resource type="PackedScene" uid="uid://doh7rsbfeuigd" path="res://player.tscn" id="2_vonw3"]
 [ext_resource type="Texture2D" uid="uid://giwyyne7wj4l" path="res://Placeholder.png" id="3_f2txt"]

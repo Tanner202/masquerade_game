@@ -11,7 +11,7 @@ class_name NPC extends CharacterBody2D
 @export_file("*.json") var dialogue_filepath: String
 @onready var sprite = $Sprite2D
 @export var npc_texture: Texture2D
-const INTERACTION_SCENE = preload("res://interaction_scene.tscn")
+const INTERACTION_SCENE = preload("res://Scenes/interaction_scene.tscn")
 
 # movement state stuff
 enum State { IDLE, WANDER, FOLLOW, INTERACT }
@@ -98,7 +98,7 @@ func process_movement(delta):
 	
 	# flip npc sprite to face movement dir
 	if velocity.x != 0:
-		sprite.flip_h = velocity.x < 0
+		sprite.flip_h = velocity.x > 0
 
 func pick_new_wander_state():
 	current_state = State.WANDER
