@@ -17,7 +17,7 @@
 	  {
 		"text": "Red admiral",
 		"target_id": "wrong_choice_loop",
-		"add_suspicion": 0.5
+		"add_suspicion": 0.1
 	  },
 	  {
 		"text": "Chocolate argus",
