@@ -43,6 +43,7 @@ expand_mode = 2
 [node name="PeacockWoman" parent="." unique_id=598578227 instance=ExtResource("1_u52ul")]
 position = Vector2(260, 181)
 scale = Vector2(2, 2)
+npcID = "PeacockLady"
 movement_speed = 0.0
 sprite_frames = SubResource("SpriteFrames_crh0w")
 portrait_texture = ExtResource("5_pa6b8")
