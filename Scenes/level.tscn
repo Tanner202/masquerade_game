@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://c2sxs75q7c30t" path="res://butterfly lady front.png" id="4_ha31o"]
 [ext_resource type="SpriteFrames" uid="uid://df1vrjnyegbs3" path="res://Art/player.tres" id="5_ha31o"]
 [ext_resource type="Texture2D" uid="uid://giwyyne7wj4l" path="res://Placeholder.png" id="6_pa6b8"]
-[ext_resource type="PackedScene" uid="uid://cjb7oprk64uo3" path="res://Scenes/door.tscn" id="7_bvt00"]
+[ext_resource type="PackedScene" path="res://Scenes/door.tscn" id="7_bvt00"]
 [ext_resource type="Script" uid="uid://cev2h4qyjq0tx" path="res://audio_manager.gd" id="10_oqgf2"]
-[ext_resource type="Script" uid="uid://bvbf7r63p0qxg" path="res://transition_manager.gd" id="11_qxfql"]
+[ext_resource type="Script" path="res://transition_manager.gd" id="11_qxfql"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1ainy"]
 vertices = PackedVector2Array(488.40625, 182.99219, 527.1406, 181, 597.4219, 183.60938, 591.1797, 290.52344, 570.21875, 319.8828, 531.1328, 326.9922, 451.75, 221.17969, 153.61719, 226.38281, 162.36719, 171.88281, 175.39063, 173.17969, 183.32813, 220.78125, 59.070313, 324.85938, 31.453125, 311.04688, 19.140625, 295.67188, 21.609375, 236.29688, 90.75, 323, 230.25781, 228, 400.60156, 227, 462.57813, 183.77344)

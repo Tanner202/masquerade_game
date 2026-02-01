@@ -15,6 +15,16 @@ colors = PackedColorArray(1, 0, 0, 1, 1, 0, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_byuxr"]
 gradient = SubResource("Gradient_jqf55")
 
+[sub_resource type="Animation" id="Animation_dhe1o"]
+resource_name = "ShowStartUI"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q0uhn"]
+_data = {
+&"ShowStartUI": SubResource("Animation_dhe1o")
+}
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_e707p"]
+
 [node name="UI" type="CanvasLayer" unique_id=776849873 node_paths=PackedStringArray("defaultUIHolder", "susBar", "notesUIHolder", "introUIHolder", "exitIntroButton")]
 layer = 2
 script = ExtResource("1_6dd3c")
@@ -263,3 +273,7 @@ offset_left = 59.0
 offset_top = 74.0
 offset_right = 109.0
 offset_bottom = 117.0
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=262576771]
+libraries/ = SubResource("AnimationLibrary_q0uhn")
+tree_root = SubResource("AnimationNodeBlendTree_e707p")

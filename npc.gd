@@ -199,6 +199,7 @@ func start_interaction():
 	
 	var interaction_instance = INTERACTION_SCENE.instantiate()
 	
+	Controller.setCurTalkingNPC(self)
 	get_tree().root.add_child(interaction_instance)
 	interaction_instance.setup(dialogue_dict, current_dialogue_id, self, portrait_texture)
 	
@@ -259,3 +260,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		player_in_interaction_range = false
 		if current_state != State.FOLLOW:
 			player = null
+
+func kill():
+	current_state = State.DEAD
+	queue_free()

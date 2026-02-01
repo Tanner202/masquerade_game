@@ -3,14 +3,23 @@ class_name GameController
 extends Node
 
 var seenIntroScroll = false
-var player
+var player : Player
+var trigger_kill : bool
 var ui : UISystem;
+var curInteraction
+var curNPC : NPC
 var gameState : GameState = GameState.new()
 const LOSE_SCENE_NAME = "res://Scenes/LoseScene.tscn"
 const FIRST_SCENE_NAME = "res://Scenes/level.tscn"
 
 func _init():
 	pass
+
+func setCurTalkingNPC(npc : NPC):
+	curNPC = npc
+
+func setInteraction(i):
+	curInteraction = i
 
 func setPlayer(givenPlayer : Player):
 	player = givenPlayer
@@ -30,6 +39,10 @@ func setPlayer(givenPlayer : Player):
 		)
 	else:
 		player.can_move = true
+	
+	# Setup Death Trigger
+	if (not gameState.has_flag("bw_killed")):
+		tryKillBW()
 
 func setUI(newUI : UISystem):
 	ui = newUI
@@ -57,3 +70,17 @@ func loadScene(sceneName : String):
 
 func loadFirstScene():
 	loadScene(FIRST_SCENE_NAME)
+
+func tryKillBW():
+	# Wait until you are trying to kill BW
+	while (not gameState.has_flag("bw_killed") or curInteraction != null):
+		await get_tree().process_frame
+	
+	curNPC.kill()
+	player.can_move = false
+	print("Pre stab")
+	await player.playStab()
+	print("After stab")
+	await player.setSpriteToFun(Player.Char.BW)
+	print("After setSpriteToFun")
+	player.can_move = true

@@ -16,6 +16,7 @@ var current_id: String
 var npc_reference: Node
 
 func setup(data: Dictionary, start_id: String, npc: Node, portrait: Texture2D):
+	Controller.setInteraction(self)
 	dialogue_data = data
 	current_id = start_id
 	npc_reference = npc
@@ -94,6 +95,7 @@ func _on_option_selected(target_id, suspicion, action_trigger, added_flag):
 		update_ui()
 
 func close_interaction(action_trigger: String = \"\"):
+	Controller.setInteraction(null)
 	if npc_reference.has_method(\"end_interaction\"):
 		npc_reference.end_interaction(action_trigger)
 	queue_free()
