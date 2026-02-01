@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://cbyhlkgowpugw"]
+
+[ext_resource type="Texture2D" uid="uid://mlwc4tky4q1e" path="res://icon.svg" id="1_773ns"]
+[ext_resource type="Texture2D" uid="uid://giwyyne7wj4l" path="res://Placeholder.png" id="1_ohbwi"]
+[ext_resource type="FontFile" uid="uid://ddqis61kyd6jj" path="res://Tiny5-Regular.ttf" id="3_moif1"]
+
+[sub_resource type="GDScript" id="GDScript_phxgd"]
+script/source = "extends CanvasLayer
+
+@onready var dialogue_label = $CanvasLayer/DialoguePanel/DialogueLabel
+@onready var options_container = $CanvasLayer/DialoguePanel/DialogueOptions
+
+var dialogue_data: Dictionary
+var current_id: String
+var npc_reference: Node
+
+func setup(data: Dictionary, start_id: String, npc: Node):
+	dialogue_data = data
+	current_id = start_id
+	npc_reference = npc
+	update_ui()
+
+func update_ui():
+	# get rid of the old buttons
+	for child in options_container.get_children():
+		child.queue_free()
+
+	# hide option buttons at the start
+	options_container.modulate.a = 0
+	options_container.visible = false
+
+	var current_node = dialogue_data[current_id]
+	dialogue_label.text = current_node[\"text\"]
+	dialogue_label.visible_ratio = 0.0
+
+	# create a button for each option
+	for option in current_node[\"options\"]:
+		var btn = Button.new()
+		btn.text = option.get(\"text\", \"Option\")
+		btn.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		btn.custom_minimum_size = Vector2(200, 0)
+		
+		if not option.has(\"target_id\"):
+			print(\"option doesn't have 'target_id' key: \" + str(option))
+		
+		btn.pressed.connect(_on_option_selected.bind(option.get(\"target_id\", \"end\"), option.get(\"add_suspicion\", 0.0)))
+		options_container.add_child(btn)
+	
+	# typewrite vibes style effect, then fade in the options
+	var tween = create_tween()
+	tween.tween_property(dialogue_label, \"visible_ratio\", 1.0, dialogue_label.text.length() * 0.03)
+	tween.tween_callback(func(): options_container.visible = true)
+	tween.tween_property(options_container, \"modulate:a\", 1.0, 0.5)
+
+func _on_option_selected(target_id, suspicion):
+	if suspicion != 0:
+		Controller.raiseSus(suspicion)
+
+	if target_id == \"end\":
+		close_interaction()
+	else:
+		current_id = target_id
+		update_ui()
+
+func close_interaction():
+	if npc_reference.has_method(\"end_interaction\"):
+		npc_reference.end_interaction()
+	queue_free()
+"
+
+[sub_resource type="GDScript" id="GDScript_773ns"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohbwi"]
+bg_color = Color(0.079316884, 0.079316884, 0.079316884, 1)
+
+[node name="InteractionScreen" type="CanvasLayer" unique_id=304026943]
+script = SubResource("GDScript_phxgd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=425059788]
+script = SubResource("GDScript_773ns")
+
+[node name="Backdrop" type="TextureRect" parent="CanvasLayer" unique_id=1786788780]
+offset_right = 640.0
+offset_bottom = 228.0
+texture = ExtResource("1_773ns")
+
+[node name="PlayerPortrait" type="TextureRect" parent="CanvasLayer" unique_id=68229762]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -30.0
+offset_right = 360.0
+offset_bottom = 60.0
+grow_vertical = 2
+texture = ExtResource("1_ohbwi")
+flip_h = true
+
+[node name="NPCPortrait" type="TextureRect" parent="CanvasLayer" unique_id=958055816]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -370.0
+offset_top = -30.0
+offset_right = 80.0
+offset_bottom = 60.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("1_ohbwi")
+
+[node name="DialoguePanel" type="Panel" parent="CanvasLayer" unique_id=232815971]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -132.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ohbwi")
+
+[node name="DialogueLabel" type="Label" parent="CanvasLayer/DialoguePanel" unique_id=1602003192]
+layout_mode = 0
+offset_left = 31.0
+offset_right = 381.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("3_moif1")
+text = "Bonjour. Comment ça va ?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="DialogueOptions" type="VBoxContainer" parent="CanvasLayer/DialoguePanel" unique_id=1051162498]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 11.0
+offset_right = 628.0
+offset_bottom = 132.0
