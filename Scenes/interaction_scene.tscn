@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://cbyhlkgowpugw"]
 
 [ext_resource type="Texture2D" uid="uid://giwyyne7wj4l" path="res://Placeholder.png" id="1_ohbwi"]
-[ext_resource type="Texture2D" uid="uid://d2xj5eteq60jl" path="res://Butterfly Lady-1.png.png" id="2_cpher"]
-[ext_resource type="FontFile" uid="uid://ddqis61kyd6jj" path="res://Tiny5-Regular.ttf" id="3_moif1"]
+[ext_resource type="Texture2D" uid="uid://c2sxs75q7c30t" path="res://butterfly lady front.png" id="1_tot5m"]
 [ext_resource type="Texture2D" uid="uid://c5ysccels0sgw" path="res://Dialogue.png" id="4_wbtfb"]
 
 [sub_resource type="GDScript" id="GDScript_phxgd"]
@@ -10,15 +9,17 @@ script/source = "extends CanvasLayer
 
 @onready var dialogue_label = $CanvasLayer/DialoguePanel/DialogueLabel
 @onready var options_container = $CanvasLayer/DialoguePanel/DialogueOptions
+@onready var npc_portrait = $CanvasLayer/NPCPortrait
 
 var dialogue_data: Dictionary
 var current_id: String
 var npc_reference: Node
 
-func setup(data: Dictionary, start_id: String, npc: Node):
+func setup(data: Dictionary, start_id: String, npc: Node, portrait: Texture2D):
 	dialogue_data = data
 	current_id = start_id
 	npc_reference = npc
+	npc_portrait.texture = portrait
 	update_ui()
 
 func update_ui():
@@ -31,7 +32,11 @@ func update_ui():
 	options_container.visible = false
 
 	var current_node = dialogue_data[current_id]
-	dialogue_label.text = current_node[\"text\"]
+	
+	# make **text** colored
+	var formatted_text = parse_highlights(current_node[\"text\"])
+	dialogue_label.bbcode_enabled = true
+	dialogue_label.text = formatted_text
 	dialogue_label.visible_ratio = 0.0
 
 	# create a button for each option
@@ -54,9 +59,27 @@ func update_ui():
 	
 	# typewrite vibes style effect, then fade in the options
 	var tween = create_tween()
-	tween.tween_property(dialogue_label, \"visible_ratio\", 1.0, dialogue_label.text.length() * 0.03)
+	dialogue_label.visible_characters = 0
+	var total_chars = dialogue_label.get_total_character_count()
+	tween.tween_property(dialogue_label, \"visible_characters\", total_chars, total_chars * 0.03)
 	tween.tween_callback(func(): options_container.visible = true)
 	tween.tween_property(options_container, \"modulate:a\", 1.0, 0.5)
+	
+func parse_highlights(text: String) -> String:
+	# make **text** colorful using bbcode
+	var highlight_color = \"e63946\"
+	var result = text
+	
+	var regex = RegEx.new()
+	regex.compile(\"\\\\*\\\\*(.+?)\\\\*\\\\*\")
+	
+	for match in regex.search_all(text):
+		var full_match = match.get_string()
+		var inner_text = match.get_string(1)
+		var replacement = \"[color=#\" + highlight_color + \"]\" + inner_text + \"[/color]\"
+		result = result.replace(full_match, replacement)
+	
+	return result
 
 func _on_option_selected(target_id, suspicion, action_trigger, added_flag):
 	if suspicion != 0:
@@ -104,12 +127,12 @@ offset_bottom = 228.0
 [node name="NPCPortrait" type="TextureRect" parent="CanvasLayer" unique_id=68229762]
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = -52.0
-offset_top = -4.0
-offset_right = 398.0
-offset_bottom = 86.0
+offset_left = -34.0
+offset_top = 8.0
+offset_right = 348.0
+offset_bottom = 30.0
 grow_vertical = 2
-texture = ExtResource("2_cpher")
+texture = ExtResource("1_tot5m")
 flip_h = true
 
 [node name="PlayerPortrait" type="TextureRect" parent="CanvasLayer" unique_id=958055816]
@@ -142,19 +165,18 @@ offset_right = 640.0
 offset_bottom = 360.0
 texture = ExtResource("4_wbtfb")
 
-[node name="DialogueLabel" type="Label" parent="CanvasLayer/DialoguePanel" unique_id=1602003192]
+[node name="DialogueLabel" type="RichTextLabel" parent="CanvasLayer/DialoguePanel" unique_id=143717098]
 layout_mode = 0
 offset_left = 38.0
 offset_top = 16.0
 offset_right = 362.0
 offset_bottom = 117.0
-theme_override_colors/font_color = Color(0.33, 0.17600001, 0, 1)
-theme_override_fonts/font = ExtResource("3_moif1")
-theme_override_font_sizes/font_size = 24
+theme_override_colors/default_color = Color(0.32941177, 0.1764706, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
 text = "Bonjour. Comment ça va ?"
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 3
 
 [node name="DialogueOptions" type="VBoxContainer" parent="CanvasLayer/DialoguePanel" unique_id=1051162498]
 layout_mode = 0

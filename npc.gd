@@ -11,6 +11,8 @@ class_name NPC extends CharacterBody2D
 @export var required_flag: String = ""  # empty if npc has no requirement
 var interaction_completed: bool = false
 
+@export var portrait_texture: Texture2D
+
 @onready var interaction_prompt = $CanvasLayer/InteractionPrompt
 @onready var nav_agent = $NavigationAgent2D
 @export_file("*.json") var dialogue_filepath: String
@@ -198,7 +200,7 @@ func start_interaction():
 	var interaction_instance = INTERACTION_SCENE.instantiate()
 	
 	get_tree().root.add_child(interaction_instance)
-	interaction_instance.setup(dialogue_dict, current_dialogue_id, self)
+	interaction_instance.setup(dialogue_dict, current_dialogue_id, self, portrait_texture)
 	
 	if player:
 		player.can_move = false
