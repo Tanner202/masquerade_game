@@ -63,7 +63,7 @@ room_scene = ExtResource("8_bvt00")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Area2D" unique_id=897292821]
-position = Vector2(25.5, 0.5)
+position = Vector2(26, 1)
 shape = SubResource("RectangleShape2D_0f350")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Door" unique_id=624979715]
