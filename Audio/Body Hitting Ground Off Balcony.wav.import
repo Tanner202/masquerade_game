@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dp6nh52566w3x"
+path="res://.godot/imported/Body Hitting Ground Off Balcony.wav-466090de92e36dc267394c3d1eb3d8f8.sample"
+
+[deps]
+
+source_file="res://Audio/Body Hitting Ground Off Balcony.wav"
+dest_files=["res://.godot/imported/Body Hitting Ground Off Balcony.wav-466090de92e36dc267394c3d1eb3d8f8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

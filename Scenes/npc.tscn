@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://drqhwa4g01bar"]
+
+[ext_resource type="Script" uid="uid://dpk2ea8gr8iwr" path="res://npc.gd" id="1_ul7y6"]
+[ext_resource type="FontFile" uid="uid://ddqis61kyd6jj" path="res://Tiny5-Regular.ttf" id="3_bc6q4"]
+[ext_resource type="PackedScene" uid="uid://jv5mfe56m5mb" path="res://Scenes/dialogue_btn.tscn" id="4_d61ma"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ul7y6"]
+size = Vector2(64, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bc6q4"]
+size = Vector2(98, 98)
+
+[node name="NPC" type="CharacterBody2D" unique_id=598578227]
+collision_layer = 4
+script = ExtResource("1_ul7y6")
+
+[node name="Dialogue" type="Label" parent="." unique_id=1583389327]
+visible = false
+offset_left = -101.0
+offset_top = -102.0
+offset_right = 106.0
+offset_bottom = -79.0
+theme_override_fonts/font = ExtResource("3_bc6q4")
+text = "Hello! This is example text!"
+
+[node name="DialogueOption" parent="." unique_id=376126389 instance=ExtResource("4_d61ma")]
+visible = false
+offset_left = -176.0
+offset_top = -39.0
+offset_right = -80.0
+offset_bottom = -8.0
+theme_override_fonts/font = ExtResource("3_bc6q4")
+text = "Response 1"
+next_dialogue = "name_response"
+
+[node name="DialogueOption2" parent="." unique_id=333918625 instance=ExtResource("4_d61ma")]
+visible = false
+offset_left = -176.0
+offset_top = -1.0
+offset_right = -80.0
+offset_bottom = 30.0
+theme_override_fonts/font = ExtResource("3_bc6q4")
+text = "Response 2"
+next_dialogue = "name_response"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=870226636]
+visible = false
+
+[node name="InteractionPrompt" type="Label" parent="CanvasLayer" unique_id=1086463468]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("3_bc6q4")
+text = "Space to interact "
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=442228039]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1328522716]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=35051784]
+shape = SubResource("RectangleShape2D_ul7y6")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=185587763]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1932924666]
+shape = SubResource("RectangleShape2D_bc6q4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=437394876]
+animation = &""
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

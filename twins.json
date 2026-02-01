@@ -1,0 +1,40 @@
+{
+  "start": {
+    "text": "...",
+    "options": [
+      {
+        "text": "Hello. Would you be kind enough to hold this ladder still for me so I can fix the chandelier?",
+        "target_id": "refusal",
+        "add_suspicion": 0.25
+      }
+    ]
+  },
+  "refusal": {
+    "text": "We're famous actors. Go ask someone else!",
+    "options": [
+      {
+        "text": "You're right. My apologies.",
+        "target_id": "sabotage_phase",
+        "action_trigger": "start_sabotage_minigame"
+      }
+    ]
+  },
+  "sabotage_phase": {
+    "text": "[You unscrew the chandelier partially and move the ladder]",
+    "options": [
+      {
+        "text": "Since I have fixed the chandelier, I can now see the beautiful light it shines upon you two.",
+        "target_id": "bait"
+      }
+    ]
+  },
+  "bait": {
+    "text": "Does it really? Are we sparkling???",
+    "options": [
+      {
+        "text": "Yes! Actually, step a bit backwards so the light can make you glow better.",
+        "action_trigger": "enable_chandelier_fall"
+      }
+    ]
+  }
+}

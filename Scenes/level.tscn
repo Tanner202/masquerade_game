@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://tst0l5wsa0cu"]
+
+[ext_resource type="PackedScene" uid="uid://drqhwa4g01bar" path="res://Scenes/npc.tscn" id="1_u52ul"]
+[ext_resource type="PackedScene" uid="uid://doh7rsbfeuigd" path="res://player.tscn" id="2_vonw3"]
+[ext_resource type="PackedScene" uid="uid://by8d7kcofyw65" path="res://UI/UI.tscn" id="3_oi3di"]
+[ext_resource type="Texture2D" uid="uid://t1pns0jgjllt" path="res://Tux-1.png.png" id="4_bvt00"]
+[ext_resource type="SpriteFrames" uid="uid://dryatghlf3t4p" path="res://Art/butterfly_lady.tres" id="3_oqgf2"]
+[ext_resource type="SpriteFrames" uid="uid://c3ychx1mc6p0n" path="res://Art/pastry_chef.tres" id="4_bvt00"]
+[ext_resource type="Texture2D" uid="uid://d1hsplopxd7hh" path="res://329063C1-339F-4B9A-A76C-114F518A0145.jpg" id="6_1ainy"]
+[ext_resource type="Script" uid="uid://co5qrwa7jymom" path="res://door.gd" id="7_8c0lf"]
+[ext_resource type="FontFile" uid="uid://ddqis61kyd6jj" path="res://Tiny5-Regular.ttf" id="8_754fn"]
+[ext_resource type="PackedScene" uid="uid://t5ia0oqdsy2d" path="res://Scenes/room2.tscn" id="8_bvt00"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_1ainy"]
+vertices = PackedVector2Array(451.75, 221.17969, 501.71094, 222.78906, 613.21094, 226.63281, 608.21875, 290.67188, 581.8906, 331.04688, 533.9922, 340.9922, 90.046875, 340, 400.60156, 227, 50.007813, 331.6172, 23.53125, 313.35156, 7.09375, 296.10156, 8.7578125, 227, 153.52344, 227, 230.25781, 228, 162.36719, 171.88281, 175.39063, 173.17969, 183.32813, 220.78125, 462.57813, 183.77344, 481.92188, 183.1875)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7), PackedInt32Array(6, 8, 9, 10, 11, 12, 13), PackedInt32Array(12, 14, 15, 16), PackedInt32Array(0, 17, 18, 1), PackedInt32Array(13, 7, 6), PackedInt32Array(12, 16, 13)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1, 217, -3, 300, 17, 321, 46, 341, 89, 350, 535, 351, 588, 340, 618, 294, 624, 217, 508, 213, 488, 173, 455, 174, 444, 212, 400, 217, 231, 218, 192, 212, 184, 164, 154, 161, 145, 217)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0f350"]
+size = Vector2(71, 151)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bvt00"]
+size = Vector2(248, 188)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bvt00"]
+
+[node name="Level" type="Node2D" unique_id=2083961112]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1965102321]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("6_1ainy")
+expand_mode = 2
+
+[node name="ButterflyWoman" parent="." unique_id=795824750 instance=ExtResource("1_u52ul")]
+position = Vector2(188, 263)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_oqgf2")
+dialogue_filepath = "res://butterfly_woman.json"
+
+[node name="PastryChef" parent="." unique_id=74179338 instance=ExtResource("1_u52ul")]
+position = Vector2(557, 124)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("4_bvt00")
+dialogue_filepath = "res://pastry_chef.json"
+npc_texture = ExtResource("4_bvt00")
+
+[node name="Player" parent="." unique_id=1297024523 instance=ExtResource("2_vonw3")]
+position = Vector2(352, 244)
+scale = Vector2(2, 2)
+
+[node name="UI" parent="." unique_id=318653403 instance=ExtResource("3_oi3di")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2010469749]
+visible = false
+position = Vector2(8, -10)
+navigation_polygon = SubResource("NavigationPolygon_1ainy")
+
+[node name="Door" type="Node2D" parent="." unique_id=1602045270]
+position = Vector2(0, 188)
+script = ExtResource("7_8c0lf")
+room_scene = ExtResource("8_bvt00")
+
+[node name="Area2D" type="Area2D" parent="Door" unique_id=540448099]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Area2D" unique_id=897292821]
+position = Vector2(26, 1)
+shape = SubResource("RectangleShape2D_0f350")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Door" unique_id=624979715]
+
+[node name="InteractionPrompt" type="Label" parent="Door/CanvasLayer" unique_id=301826588]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("8_754fn")
+text = "Space to interact "
+
+[node name="LevelCollisions" type="Node2D" parent="." unique_id=671549185]
+position = Vector2(323, 146)
+
+[node name="LevelCollision" type="StaticBody2D" parent="LevelCollisions" unique_id=381278146]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelCollisions/LevelCollision" unique_id=885735785]
+position = Vector2(10, -52)
+shape = SubResource("RectangleShape2D_bvt00")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelCollisions/LevelCollision" unique_id=1433925568]
+position = Vector2(-243, -99)
+shape = SubResource("RectangleShape2D_bvt00")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="LevelCollisions/LevelCollision" unique_id=1887871144]
+position = Vector2(228, -105)
+shape = SubResource("RectangleShape2D_bvt00")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="LevelCollisions/LevelCollision" unique_id=954212633]
+position = Vector2(-11, -146)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_bvt00")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="LevelCollisions/LevelCollision" unique_id=1942068199]
+position = Vector2(-324, 57)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_bvt00")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="LevelCollisions/LevelCollision" unique_id=709982570]
+position = Vector2(316, 57)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_bvt00")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="LevelCollisions/LevelCollision" unique_id=1224276941]
+position = Vector2(-11, 214)
+shape = SubResource("WorldBoundaryShape2D_bvt00")
+
+[connection signal="body_entered" from="Door/Area2D" to="Door" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Door/Area2D" to="Door" method="_on_area_2d_body_exited"]

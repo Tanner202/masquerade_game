@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bj8or38mr7pb2"
+path="res://.godot/imported/Chandelier Crash.wav-55d60622a075687f153c91f452772ce2.sample"
+
+[deps]
+
+source_file="res://Audio/Chandelier Crash.wav"
+dest_files=["res://.godot/imported/Chandelier Crash.wav-55d60622a075687f153c91f452772ce2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

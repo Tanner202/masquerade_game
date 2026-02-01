@@ -1,0 +1,20 @@
+{
+  "start": {
+	"text": "I love this party, but I prefer looking at the butterflies.",
+	"options": [
+	  { "text": "Butterflies?", "target_id": "explain_butterflies" }
+	]
+  },
+  "explain_butterflies": {
+	"text": "Yes, in the butterfly garden down there. There are many types, you see.",
+	"options": [
+	  { "text": "Oh", "target_id": "list_butterflies" }
+	]
+  },
+  "list_butterflies": {
+	"text": "Red admiral, **chocolate argus**, painted lady. I love them all!",
+	"options": [
+	  { "text": "Ok... [STAB]", "action_trigger": "trigger_stab_butterfly" }
+	]
+  }
+}
