@@ -132,7 +132,7 @@ func end_interaction():
 	is_interacting = false
 	if current_state != State.FOLLOW:
 		current_state = State.WANDER
-	pick_new_wander_state()
+		pick_new_wander_state()
 	
 	if player_in_interaction_range:
 		interaction_prompt.visible = true
