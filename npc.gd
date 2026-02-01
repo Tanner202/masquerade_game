@@ -8,6 +8,9 @@ class_name NPC extends CharacterBody2D
 
 @export var sprite_frames: SpriteFrames
 
+@export var required_flag: String = ""  # empty if npc has no requirement
+var interaction_completed: bool = false
+
 @onready var interaction_prompt = $CanvasLayer/InteractionPrompt
 @onready var nav_agent = $NavigationAgent2D
 @export_file("*.json") var dialogue_filepath: String
@@ -15,7 +18,7 @@ class_name NPC extends CharacterBody2D
 const INTERACTION_SCENE = preload("res://Scenes/interaction_scene.tscn")
 
 # movement state stuff
-enum State { IDLE, WANDER, FOLLOW, INTERACT }
+enum State { IDLE, WANDER, FOLLOW, INTERACT, DEAD }
 var current_state = State.IDLE
 var start_position: Vector2
 var idle_timer: float = 0.0
@@ -26,6 +29,7 @@ var current_dialogue_id = "start"
 var player_in_interaction_range = false
 var player: CharacterBody2D = null
 var is_interacting = false
+var just_started_wandering = false
 
 var default_animation: String = "default"
 
@@ -64,12 +68,39 @@ func _physics_process(delta):
 		State.WANDER:
 			process_movement(delta)
 		State.FOLLOW:
-			pass
+			process_follow(delta)
 		State.INTERACT:
 			velocity = Vector2.ZERO # don't run away while mid interaciton
+		State.DEAD:
+			velocity = Vector2.ZERO # dead people don't move (hopefully)
 			
 #	if current_state != State.IDLE and current_state != State.INTERACT:
 	move_and_slide()
+	
+func process_follow(delta):
+	if not player:
+		# no player, wander instead
+		current_state = State.WANDER
+		pick_new_wander_state()
+		return
+	
+	var distance_to_player = global_position.distance_to(player.global_position)
+	
+	# don't get too close to player
+	if distance_to_player < 50.0:
+		velocity = Vector2.ZERO
+		return
+	
+	var direction = global_position.direction_to(player.global_position)
+	
+	# only up down left right movement
+	if abs(direction.x) > abs(direction.y):
+		velocity = Vector2(sign(direction.x), 0) * movement_speed
+	else:
+		velocity = Vector2(0, sign(direction.y)) * movement_speed
+	
+	if velocity.x != 0:
+		sprite.flip_h = velocity.x < 0
 		
 func process_idle(delta):
 	velocity = Vector2.ZERO
@@ -78,6 +109,10 @@ func process_idle(delta):
 		pick_new_wander_state()
 
 func process_movement(delta):
+	if just_started_wandering:
+		just_started_wandering = false
+		return
+	
 	if nav_agent.is_navigation_finished():
 		# got to nav point, start idle
 		current_state = State.IDLE
@@ -106,6 +141,7 @@ func process_movement(delta):
 
 func pick_new_wander_state():
 	current_state = State.WANDER
+	just_started_wandering = true
 	
 	# send them off to a random point near the start spot
 	var directions = [Vector2.UP, Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT]
@@ -117,7 +153,23 @@ func pick_new_wander_state():
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and player_in_interaction_range and not is_interacting:
-		start_interaction()
+		if can_interact():
+			start_interaction()
+
+func start_following():
+	current_state = State.FOLLOW
+	
+func stop_following():
+	current_state = State.IDLE
+
+func can_interact() -> bool:
+	# make sure npc hasn't alr been done
+	if Controller.gameState.is_npc_completed(name):
+		return false
+	# make sure any requirements are met
+	if required_flag != "" and not Controller.gameState.has_flag(required_flag):
+		return false
+	return true
 
 func start_interaction():
 	is_interacting = true
@@ -132,13 +184,17 @@ func start_interaction():
 	if player:
 		player.can_move = false
 
-func end_interaction():
+func end_interaction(action_trigger: String = ""):
 	is_interacting = false
-	if current_state != State.FOLLOW:
-		current_state = State.WANDER
-		pick_new_wander_state()
 	
-	if player_in_interaction_range:
+	match action_trigger:
+		"follow":
+			start_following()
+		_:
+			current_state = State.WANDER
+			pick_new_wander_state()
+	
+	if player_in_interaction_range and can_interact():
 		interaction_prompt.visible = true
 	if player:
 		player.can_move = true
@@ -167,10 +223,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == 'Player':
 		player_in_interaction_range = true
 		player = body
-		interaction_prompt.visible = true
+		if can_interact():
+			interaction_prompt.visible = true
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == 'Player':
 		player_in_interaction_range = false
-		player = null
+		if current_state != State.FOLLOW:
+			player = null
 		interaction_prompt.visible = false

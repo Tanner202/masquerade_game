@@ -45,7 +45,12 @@ func update_ui():
 		if not option.has(\"target_id\"):
 			print(\"option doesn't have 'target_id' key: \" + str(option))
 		
-		btn.pressed.connect(_on_option_selected.bind(option.get(\"target_id\", \"end\"), option.get(\"add_suspicion\", 0.0)))
+		btn.pressed.connect(_on_option_selected.bind(
+			option.get(\"target_id\", \"end\"),
+			option.get(\"add_suspicion\", 0.0),
+			option.get(\"action_trigger\", \"\"),
+			option.get(\"added_flag\", \"\")
+		))
 		options_container.add_child(btn)
 	
 	# typewrite vibes style effect, then fade in the options
@@ -54,19 +59,21 @@ func update_ui():
 	tween.tween_callback(func(): options_container.visible = true)
 	tween.tween_property(options_container, \"modulate:a\", 1.0, 0.5)
 
-func _on_option_selected(target_id, suspicion):
+func _on_option_selected(target_id, suspicion, action_trigger, added_flag):
 	if suspicion != 0:
 		Controller.raiseSus(suspicion)
 
 	if target_id == \"end\":
-		close_interaction()
+		Controller.gameState.complete_npc(npc_reference.name) # make dialogue as exhausted
+		Controller.gameState.add_flag(added_flag)
+		close_interaction(action_trigger)
 	else:
 		current_id = target_id
 		update_ui()
 
-func close_interaction():
+func close_interaction(action_trigger: String = \"\"):
 	if npc_reference.has_method(\"end_interaction\"):
-		npc_reference.end_interaction()
+		npc_reference.end_interaction(action_trigger)
 	queue_free()
 "
 

@@ -14,7 +14,7 @@
   "list_butterflies": {
 	"text": "Red admiral, **chocolate argus**, painted lady. I love them all!",
 	"options": [
-	  { "text": "Ok... [STAB]", "action_trigger": "trigger_stab_butterfly" }
+	  { "text": "Ok... [STAB]", "action_trigger": "follow", "added_flag": "bw_killed" }
 	]
   }
 }
