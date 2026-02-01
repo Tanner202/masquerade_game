@@ -3,13 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://bgmjno0hksfvn" path="res://ballroom.png" id="1_e67my"]
 [ext_resource type="PackedScene" uid="uid://drqhwa4g01bar" path="res://Scenes/npc.tscn" id="2_m7wml"]
 [ext_resource type="SpriteFrames" uid="uid://bo0ranvre73vt" path="res://Art/jester.tres" id="3_e67my"]
-[ext_resource type="SpriteFrames" uid="uid://df1vrjnyegbs3" path="res://Art/player.tres" id="4_e67my"]
 [ext_resource type="Texture2D" uid="uid://cq8m1rtlj58g3" path="res://Jester.png" id="4_m7wml"]
 [ext_resource type="PackedScene" uid="uid://doh7rsbfeuigd" path="res://player.tscn" id="5_v5q2q"]
 [ext_resource type="PackedScene" uid="uid://by8d7kcofyw65" path="res://UI/UI.tscn" id="6_3wjai"]
 [ext_resource type="Texture2D" uid="uid://t1pns0jgjllt" path="res://Tux-1.png.png" id="6_aqwhr"]
 [ext_resource type="SpriteFrames" uid="uid://c3ychx1mc6p0n" path="res://Art/pastry_chef.tres" id="6_e0dq6"]
-[ext_resource type="Texture2D" uid="uid://giwyyne7wj4l" path="res://Placeholder.png" id="6_v5q2q"]
 [ext_resource type="Script" uid="uid://co5qrwa7jymom" path="res://door.gd" id="7_pa8e7"]
 [ext_resource type="FontFile" uid="uid://ddqis61kyd6jj" path="res://Tiny5-Regular.ttf" id="9_13ll2"]
 [ext_resource type="Script" uid="uid://cev2h4qyjq0tx" path="res://audio_manager.gd" id="10_trbkl"]
@@ -32,18 +30,11 @@ texture = ExtResource("1_e67my")
 expand_mode = 2
 
 [node name="Jester" parent="." unique_id=795824750 instance=ExtResource("2_m7wml")]
-position = Vector2(188, 263)
+position = Vector2(107, 212)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("3_e67my")
 portrait_texture = ExtResource("4_m7wml")
 dialogue_filepath = "res://jester.json"
-
-[node name="PeacockWoman" parent="." unique_id=74179338 instance=ExtResource("2_m7wml")]
-position = Vector2(557, 124)
-scale = Vector2(2, 2)
-sprite_frames = ExtResource("4_e67my")
-portrait_texture = ExtResource("6_v5q2q")
-dialogue_filepath = "res://peacock_woman.json"
 
 [node name="Butler" parent="." unique_id=598578227 instance=ExtResource("2_m7wml")]
 position = Vector2(357, 116)
@@ -53,7 +44,7 @@ portrait_texture = ExtResource("6_aqwhr")
 dialogue_filepath = "res://butler.json"
 
 [node name="Player" parent="." unique_id=1297024523 instance=ExtResource("5_v5q2q")]
-position = Vector2(352, 244)
+position = Vector2(452, 250)
 scale = Vector2(2, 2)
 
 [node name="UI" parent="." unique_id=318653403 instance=ExtResource("6_3wjai")]
