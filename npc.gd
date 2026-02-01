@@ -46,6 +46,7 @@ func _ready() -> void:
 	if sprite_frames and sprite:
 		sprite.sprite_frames = sprite_frames
 		sprite.animation = default_animation
+		sprite.play(default_animation)
 		
 	if dialogue_filepath == "":
 		printerr("No dialogue json file for: " + name)
