@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://cbyhlkgowpugw"]
 
-[ext_resource type="Texture2D" uid="uid://mlwc4tky4q1e" path="res://icon.svg" id="1_773ns"]
 [ext_resource type="Texture2D" uid="uid://giwyyne7wj4l" path="res://Placeholder.png" id="1_ohbwi"]
 [ext_resource type="Texture2D" uid="uid://d2xj5eteq60jl" path="res://Butterfly Lady-1.png.png" id="2_cpher"]
 [ext_resource type="FontFile" uid="uid://ddqis61kyd6jj" path="res://Tiny5-Regular.ttf" id="3_moif1"]
@@ -45,7 +44,12 @@ func update_ui():
 		if not option.has(\"target_id\"):
 			print(\"option doesn't have 'target_id' key: \" + str(option))
 		
-		btn.pressed.connect(_on_option_selected.bind(option.get(\"target_id\", \"end\"), option.get(\"add_suspicion\", 0.0)))
+		btn.pressed.connect(_on_option_selected.bind(
+			option.get(\"target_id\", \"end\"),
+			option.get(\"add_suspicion\", 0.0),
+			option.get(\"action_trigger\", \"\"),
+			option.get(\"added_flag\", \"\")
+		))
 		options_container.add_child(btn)
 	
 	# typewrite vibes style effect, then fade in the options
@@ -54,23 +58,28 @@ func update_ui():
 	tween.tween_callback(func(): options_container.visible = true)
 	tween.tween_property(options_container, \"modulate:a\", 1.0, 0.5)
 
-func _on_option_selected(target_id, suspicion):
+func _on_option_selected(target_id, suspicion, action_trigger, added_flag):
 	if suspicion != 0:
 		Controller.raiseSus(suspicion)
 
 	if target_id == \"end\":
-		close_interaction()
+		Controller.gameState.complete_npc(npc_reference.name) # make dialogue as exhausted
+		Controller.gameState.add_flag(added_flag)
+		close_interaction(action_trigger)
 	else:
 		current_id = target_id
 		update_ui()
 
-func close_interaction():
+func close_interaction(action_trigger: String = \"\"):
 	if npc_reference.has_method(\"end_interaction\"):
-		npc_reference.end_interaction()
+		npc_reference.end_interaction(action_trigger)
 	queue_free()
 "
 
 [sub_resource type="GDScript" id="GDScript_773ns"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60orp"]
+bg_color = Color(0.09, 0.09, 0.09, 0.23137255)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohbwi"]
 bg_color = Color(0.079316884, 0.079316884, 0.079316884, 1)
@@ -83,18 +92,22 @@ script = SubResource("GDScript_phxgd")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=425059788]
 script = SubResource("GDScript_773ns")
 
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1030459782]
+offset_right = 640.0
+offset_bottom = 231.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_60orp")
+
 [node name="Backdrop" type="TextureRect" parent="CanvasLayer" unique_id=1786788780]
 offset_right = 640.0
 offset_bottom = 228.0
-texture = ExtResource("1_773ns")
 
 [node name="NPCPortrait" type="TextureRect" parent="CanvasLayer" unique_id=68229762]
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = -56.0
-offset_top = -22.0
-offset_right = 394.0
-offset_bottom = 68.0
+offset_left = -52.0
+offset_top = -4.0
+offset_right = 398.0
+offset_bottom = 86.0
 grow_vertical = 2
 texture = ExtResource("2_cpher")
 flip_h = true

@@ -50,6 +50,8 @@ func moveSusLevelTo(newSusPercent : float, duration : float, slowAtEnd : bool) -
 	var curSus : float = susBar.value
 	var timePassed : float = 0;
 	while (timePassed < duration):
+		if not is_inside_tree():
+			return
 		var t : float = timePassed / duration
 		if (slowAtEnd): 
 			t = sqrt(t) 
