@@ -30,12 +30,12 @@
 	"text": "Leave me, jester. I am mourning my birds.",
 	"options": [
 	  {
-		"text": "What are you doing away from the party? Did you get too farty?",
+		"text": "Why'd you leave the party? Did you get too farty?",
 		"target_id": "explanation",
 		"add_suspicion": 0.1
 	  },
 	  {
-		"text": "What are you doing away from the party? Don't be so dishearty!",
+		"text": "Why'd you leave the party? Don't be so dishearty!",
 		"target_id": "explanation"
 	  }
 	]
