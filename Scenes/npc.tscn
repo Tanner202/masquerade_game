@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dpk2ea8gr8iwr" path="res://npc.gd" id="1_ul7y6"]
 [ext_resource type="FontFile" uid="uid://ddqis61kyd6jj" path="res://Tiny5-Regular.ttf" id="3_bc6q4"]
-[ext_resource type="Script" path="res://dialogue.gd" id="3_mcvl2"]
 [ext_resource type="PackedScene" uid="uid://jv5mfe56m5mb" path="res://Scenes/dialogue_btn.tscn" id="4_d61ma"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ul7y6"]
@@ -23,9 +22,8 @@ offset_right = 106.0
 offset_bottom = -79.0
 theme_override_fonts/font = ExtResource("3_bc6q4")
 text = "Hello! This is example text!"
-script = ExtResource("3_mcvl2")
 
-[node name="DialogueOption" parent="." unique_id=376126389 node_paths=PackedStringArray("dialogue_owner") instance=ExtResource("4_d61ma")]
+[node name="DialogueOption" parent="." unique_id=376126389 instance=ExtResource("4_d61ma")]
 visible = false
 offset_left = -176.0
 offset_top = -39.0
@@ -33,10 +31,9 @@ offset_right = -80.0
 offset_bottom = -8.0
 theme_override_fonts/font = ExtResource("3_bc6q4")
 text = "Response 1"
-dialogue_owner = NodePath("")
 next_dialogue = "name_response"
 
-[node name="DialogueOption2" parent="." unique_id=333918625 node_paths=PackedStringArray("dialogue_owner") instance=ExtResource("4_d61ma")]
+[node name="DialogueOption2" parent="." unique_id=333918625 instance=ExtResource("4_d61ma")]
 visible = false
 offset_left = -176.0
 offset_top = -1.0
@@ -44,7 +41,6 @@ offset_right = -80.0
 offset_bottom = 30.0
 theme_override_fonts/font = ExtResource("3_bc6q4")
 text = "Response 2"
-dialogue_owner = NodePath("")
 next_dialogue = "name_response"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=870226636]
