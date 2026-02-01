@@ -35,6 +35,8 @@ func _physics_process(delta):
 	
 	if velocity.y != 0 and velocity.x == 0:
 		animated_sprite_2d.play("walk_vertical")
+	elif velocity.x != 0:
+		animated_sprite_2d.play("walk")
 		
 	get_input()
 	move_and_slide()
