@@ -6,18 +6,14 @@
 [ext_resource type="SpriteFrames" uid="uid://dryatghlf3t4p" path="res://Art/butterfly_lady.tres" id="3_oqgf2"]
 [ext_resource type="SpriteFrames" uid="uid://c3ychx1mc6p0n" path="res://Art/pastry_chef.tres" id="4_bvt00"]
 [ext_resource type="Texture2D" uid="uid://d1hsplopxd7hh" path="res://329063C1-339F-4B9A-A76C-114F518A0145.jpg" id="6_1ainy"]
-[ext_resource type="Script" uid="uid://co5qrwa7jymom" path="res://door.gd" id="7_8c0lf"]
-[ext_resource type="FontFile" uid="uid://ddqis61kyd6jj" path="res://Tiny5-Regular.ttf" id="8_754fn"]
-[ext_resource type="PackedScene" uid="uid://t5ia0oqdsy2d" path="res://Scenes/room2.tscn" id="8_bvt00"]
+[ext_resource type="PackedScene" uid="uid://cjb7oprk64uo3" path="res://Scenes/door.tscn" id="7_bvt00"]
 [ext_resource type="Script" uid="uid://cev2h4qyjq0tx" path="res://audio_manager.gd" id="10_oqgf2"]
+[ext_resource type="Script" uid="uid://bvbf7r63p0qxg" path="res://transition_manager.gd" id="11_qxfql"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1ainy"]
 vertices = PackedVector2Array(451.75, 221.17969, 501.71094, 222.78906, 613.21094, 226.63281, 608.21875, 290.67188, 581.8906, 331.04688, 533.9922, 340.9922, 90.046875, 340, 400.60156, 227, 50.007813, 331.6172, 23.53125, 313.35156, 7.09375, 296.10156, 8.7578125, 227, 153.52344, 227, 230.25781, 228, 162.36719, 171.88281, 175.39063, 173.17969, 183.32813, 220.78125, 462.57813, 183.77344, 481.92188, 183.1875)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7), PackedInt32Array(6, 8, 9, 10, 11, 12, 13), PackedInt32Array(12, 14, 15, 16), PackedInt32Array(0, 17, 18, 1), PackedInt32Array(13, 7, 6), PackedInt32Array(12, 16, 13)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1, 217, -3, 300, 17, 321, 46, 341, 89, 350, 535, 351, 588, 340, 618, 294, 624, 217, 508, 213, 488, 173, 455, 174, 444, 212, 400, 217, 231, 218, 192, 212, 184, 164, 154, 161, 145, 217)])
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0f350"]
-size = Vector2(71, 151)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bvt00"]
 size = Vector2(248, 188)
@@ -55,30 +51,9 @@ visible = false
 position = Vector2(8, -10)
 navigation_polygon = SubResource("NavigationPolygon_1ainy")
 
-[node name="Door" type="Node2D" parent="." unique_id=1602045270]
+[node name="LeftDoor" parent="." unique_id=1393553521 instance=ExtResource("7_bvt00")]
 position = Vector2(0, 188)
-script = ExtResource("7_8c0lf")
-room_scene = ExtResource("8_bvt00")
-
-[node name="Area2D" type="Area2D" parent="Door" unique_id=540448099]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Area2D" unique_id=897292821]
-position = Vector2(26, 1)
-shape = SubResource("RectangleShape2D_0f350")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Door" unique_id=624979715]
-
-[node name="InteractionPrompt" type="Label" parent="Door/CanvasLayer" unique_id=301826588]
-visible = false
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
-grow_horizontal = 0
-theme_override_fonts/font = ExtResource("8_754fn")
-text = "Space to interact "
+room_path = "res://Scenes/room2.tscn"
 
 [node name="LevelCollisions" type="Node2D" parent="." unique_id=671549185]
 position = Vector2(323, 146)
@@ -120,5 +95,5 @@ shape = SubResource("WorldBoundaryShape2D_bvt00")
 [node name="AudioManager" type="Node" parent="." unique_id=1563148427]
 script = ExtResource("10_oqgf2")
 
-[connection signal="body_entered" from="Door/Area2D" to="Door" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Door/Area2D" to="Door" method="_on_area_2d_body_exited"]
+[node name="TransitionManager" type="Node" parent="." unique_id=625707479]
+script = ExtResource("11_qxfql")
