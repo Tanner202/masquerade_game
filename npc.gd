@@ -6,11 +6,12 @@ class_name NPC extends CharacterBody2D
 @export var min_idle_time: float = 2.0 # seconds
 @export var max_idle_time: float = 5.0 # seconds
 
+@export var sprite_frames: SpriteFrames
+
 @onready var interaction_prompt = $CanvasLayer/InteractionPrompt
 @onready var nav_agent = $NavigationAgent2D
 @export_file("*.json") var dialogue_filepath: String
-@onready var sprite = $Sprite2D
-@export var npc_texture: Texture2D
+@onready var sprite = $AnimatedSprite2D
 const INTERACTION_SCENE = preload("res://Scenes/interaction_scene.tscn")
 
 # movement state stuff
@@ -26,14 +27,17 @@ var player_in_interaction_range = false
 var player: CharacterBody2D = null
 var is_interacting = false
 
+var default_animation: String = "default"
+
 func _ready() -> void:
 	start_position = global_position
 	
 	nav_agent.path_desired_distance = 10.0
 	nav_agent.target_desired_distance = 20.0
 	
-	if npc_texture and sprite:
-		sprite.texture = npc_texture
+	if sprite_frames and sprite:
+		sprite.sprite_frames = sprite_frames
+		sprite.animation = default_animation
 		
 	if dialogue_filepath == "":
 		printerr("No dialogue json file for: " + name)
