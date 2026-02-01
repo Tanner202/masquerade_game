@@ -61,6 +61,7 @@ dialogue_owner = NodePath("..")
 next_dialogue = "name_response"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=870226636]
+visible = false
 
 [node name="InteractionPrompt" type="Label" parent="CanvasLayer" unique_id=1086463468]
 anchors_preset = 1

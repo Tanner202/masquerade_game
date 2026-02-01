@@ -1,7 +1,7 @@
 class_name NPC extends Node
 
 #@onready var dialogue = $Dialogue
-@onready var interaction_prompt = $CanvasLayer/InteractionPrompt
+#@onready var interaction_prompt = $CanvasLayer/InteractionPrompt
 #@export var dialogue_options: Array[Button]
 const INTERACTION_SCENE = preload("res://interaction_scene.tscn")
 
@@ -16,8 +16,8 @@ var is_interacting = false
 func _ready() -> void:
 	dialogue_dict = read_json(dialogue_filepath)
 	#dialogue.text = dialogue_dict[current_dialogue_id]["text"]
-	interaction_prompt.text = "Space to interact "
-	interaction_prompt.visible = false
+	#interaction_prompt.text = "Space to interact "
+	#interaction_prompt.visible = false
 
 func _input(event: InputEvent) -> void:
 	#if event.is_action_pressed("interact"):
@@ -35,7 +35,7 @@ func _input(event: InputEvent) -> void:
 
 func start_interaction():
 	is_interacting = true
-	interaction_prompt.visible = false
+	#interaction_prompt.visible = false
 	var interaction_instance = INTERACTION_SCENE.instantiate()
 	
 	get_tree().root.add_child(interaction_instance)
@@ -47,7 +47,7 @@ func start_interaction():
 func end_interaction():
 	is_interacting = false
 	if player_in_interaction_range:
-		interaction_prompt.visible = true
+		Controller.setCanTalk(true)#interaction_prompt.visible = true
 	if player:
 		player.can_move = true
 
@@ -75,12 +75,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == 'Player':
 		player_in_interaction_range = true
 		player = body
-		interaction_prompt.visible = true
+		Controller.setCanTalk(true)#interaction_prompt.visible = true
 		print('foo')
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == 'Player':
 		player_in_interaction_range = false
 		player = null
-		interaction_prompt.visible = false
+		Controller.setCanTalk(false)#interaction_prompt.visible = false
 		print('bar')

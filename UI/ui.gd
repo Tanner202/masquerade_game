@@ -9,14 +9,19 @@ enum UIState {DEFAULT, NOTES}
 @export var susBar : TextureProgressBar
 @export var susMoveDuration = 3.0
 @export var susMoveBackDuration = 1.0
+@export var interactText : Label
+@export var changeToNotesUIButton : Button
 
 # NOTES
 @export var notesUIHolder : Control
+@export var backToDefaultUIButton : Button
 
 
 func _ready() -> void:
-	forceSetSusTo(0)
+	setCanInteract(false)
 	Controller.setUI(self)
+	changeToNotesUIButton.pressed.connect(func(): setUI(UIState.NOTES))
+	backToDefaultUIButton.pressed.connect(func(): setUI(UIState.DEFAULT))
 
 func setUI(nextState : UIState) -> void:
 	defaultUIHolder.hide()
@@ -25,6 +30,12 @@ func setUI(nextState : UIState) -> void:
 		defaultUIHolder.show()
 	elif (nextState == UIState.NOTES):
 		notesUIHolder.show()
+
+func setCanInteract(canInteract : bool):
+	if (canInteract):
+		interactText.show()
+	else:
+		interactText.hide()
 
 func forceSetSusTo(value : float):
 	susBar.value = value
