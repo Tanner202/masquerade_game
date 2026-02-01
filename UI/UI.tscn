@@ -31,6 +31,7 @@ introUIHolder = NodePath("StartUI")
 exitIntroButton = NodePath("StartUI/StartButton")
 
 [node name="StartUI" type="Control" parent="." unique_id=381112282]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -83,18 +84,18 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 bbcode_enabled = true
-text = "[color=white][font_size=20][wave]Continue"
+text = "[color=white][font_size=24][wave]Continue"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="StartUI" unique_id=1571789786]
 layout_mode = 0
 offset_left = 230.0
-offset_top = 54.0
+offset_top = 73.0
 offset_right = 401.0
-offset_bottom = 261.0
+offset_bottom = 245.0
 bbcode_enabled = true
-text = "[color=black][font_size=17]Here’s a knife. 
+text = "[color=black][font_size=16]Here’s a knife. 
 
 I heard you have a [wave]special[/wave] ability that will come into use. You know what you have to do. 
 
@@ -186,7 +187,7 @@ offset_bottom = 15.0
 grow_vertical = 2
 mouse_filter = 2
 bbcode_enabled = true
-text = "[wave][outline_color=black][outline_size=4][color=#ff5050][font_size=15]Suspicion:"
+text = "[wave][outline_color=black][outline_size=4][color=#ff5050][font_size=16]Suspicion:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
