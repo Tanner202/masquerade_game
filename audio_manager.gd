@@ -24,7 +24,7 @@ func play_music(music: AudioStream):
 	
 func _on_scene_changed():
 	var scene = get_tree().current_scene
-	if scene.name == "Ballroom":
+	if scene.name == "ballroom":
 		play_music(BALLROOM)
 	else:
 		play_music(MAIN_THEME)

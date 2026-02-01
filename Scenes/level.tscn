@@ -58,7 +58,7 @@ navigation_polygon = SubResource("NavigationPolygon_1ainy")
 
 [node name="LeftDoor" parent="." unique_id=1393553521 instance=ExtResource("7_bvt00")]
 position = Vector2(0, 188)
-room_path = "res://Scenes/room2.tscn"
+room_path = "res://Scenes/ballroom.tscn"
 
 [node name="LevelCollisions" type="Node2D" parent="." unique_id=671549185]
 visible = false
