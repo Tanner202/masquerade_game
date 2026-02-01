@@ -75,7 +75,6 @@ func process_idle(delta):
 
 func process_movement(delta):
 	if nav_agent.is_navigation_finished():
-		print("Navigation finished - going idle")
 		# got to nav point, start idle
 		current_state = State.IDLE
 		idle_timer = randf_range(min_idle_time, max_idle_time)
@@ -84,8 +83,18 @@ func process_movement(delta):
 	# get destination
 	var current_pos = global_position
 	var next_path_pos = nav_agent.get_next_path_position()
-	print("Moving toward: ", next_path_pos)
-	velocity = current_pos.direction_to(next_path_pos) * movement_speed
+	
+	if current_pos.distance_to(nav_agent.target_position) < 10.0:
+		current_state = State.IDLE
+		idle_timer = randf_range(min_idle_time, max_idle_time)
+		return
+	
+	var direction = current_pos.direction_to(next_path_pos)
+	
+	if abs(direction.x) > abs(direction.y):
+		velocity = Vector2(sign(direction.x), 0) * movement_speed
+	else:
+		velocity = Vector2(0, sign(direction.y)) * movement_speed
 	
 	# flip npc sprite to face movement dir
 	if velocity.x != 0:
@@ -95,7 +104,8 @@ func pick_new_wander_state():
 	current_state = State.WANDER
 	
 	# send them off to a random point near the start spot
-	var random_dir = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
+	var directions = [Vector2.UP, Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT]
+	var random_dir = directions.pick_random()
 	var random_dist = randf_range(50, wander_radius)
 	var target_pos = start_position + (random_dir * random_dist)
 	

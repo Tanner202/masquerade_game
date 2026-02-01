@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://giwyyne7wj4l" path="res://Placeholder.png" id="1_ohbwi"]
 [ext_resource type="FontFile" uid="uid://ddqis61kyd6jj" path="res://Tiny5-Regular.ttf" id="3_moif1"]
 [ext_resource type="Texture2D" uid="uid://t1pns0jgjllt" path="res://Tux-1.png.png" id="3_v4pst"]
+[ext_resource type="Texture2D" uid="uid://c5ysccels0sgw" path="res://Dialogue.png" id="4_wbtfb"]
 
 [sub_resource type="GDScript" id="GDScript_phxgd"]
 script/source = "extends CanvasLayer
@@ -74,6 +75,8 @@ func close_interaction():
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohbwi"]
 bg_color = Color(0.079316884, 0.079316884, 0.079316884, 1)
 
+[sub_resource type="Theme" id="Theme_wbtfb"]
+
 [node name="InteractionScreen" type="CanvasLayer" unique_id=304026943]
 script = SubResource("GDScript_phxgd")
 
@@ -109,7 +112,7 @@ grow_horizontal = 0
 grow_vertical = 2
 texture = ExtResource("3_v4pst")
 
-[node name="DialoguePanel" type="Panel" parent="CanvasLayer" unique_id=232815971]
+[node name="DialoguePanelOld" type="Panel" parent="CanvasLayer" unique_id=232815971]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -119,12 +122,21 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ohbwi")
 
+[node name="DialoguePanel" type="TextureRect" parent="CanvasLayer" unique_id=1669810061]
+offset_top = 228.0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("4_wbtfb")
+
 [node name="DialogueLabel" type="Label" parent="CanvasLayer/DialoguePanel" unique_id=1602003192]
 layout_mode = 0
-offset_left = 31.0
-offset_right = 381.0
-offset_bottom = 132.0
+offset_left = 38.0
+offset_top = 16.0
+offset_right = 362.0
+offset_bottom = 117.0
+theme_override_colors/font_color = Color(0.33, 0.17600001, 0, 1)
 theme_override_fonts/font = ExtResource("3_moif1")
+theme_override_font_sizes/font_size = 24
 text = "Bonjour. Comment ça va ?"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -132,7 +144,9 @@ autowrap_mode = 3
 
 [node name="DialogueOptions" type="VBoxContainer" parent="CanvasLayer/DialoguePanel" unique_id=1051162498]
 layout_mode = 0
-offset_left = 418.0
-offset_top = 11.0
-offset_right = 628.0
-offset_bottom = 132.0
+offset_left = 403.0
+offset_top = 14.0
+offset_right = 624.0
+offset_bottom = 118.0
+theme = SubResource("Theme_wbtfb")
+alignment = 1
