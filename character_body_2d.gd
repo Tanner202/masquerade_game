@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Player
+
 @export var speed = 100
 
 var can_move = true
@@ -9,6 +11,9 @@ var can_move = true
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("stab"):
 		animated_sprite_2d.play("stab")
+
+func _ready():
+	Controller.setPlayer(self)
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")

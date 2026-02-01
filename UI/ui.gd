@@ -2,7 +2,7 @@ class_name UISystem
 
 extends CanvasLayer
 
-enum UIState {DEFAULT, NOTES}
+enum UIState {DEFAULT, NOTES, INTRO_SCROLL}
 
 # DEFAULT UI
 @export var defaultUIHolder : Control
@@ -13,6 +13,9 @@ enum UIState {DEFAULT, NOTES}
 # NOTES
 @export var notesUIHolder : Control
 
+# INTRO
+@export var introUIHolder : Control
+@export var exitIntroButton : Button
 
 func _ready() -> void:
 	forceSetSusTo(0)
@@ -21,10 +24,16 @@ func _ready() -> void:
 func setUI(nextState : UIState) -> void:
 	defaultUIHolder.hide()
 	notesUIHolder.hide()
+	introUIHolder.hide()
 	if (nextState == UIState.DEFAULT):
 		defaultUIHolder.show()
 	elif (nextState == UIState.NOTES):
 		notesUIHolder.show()
+	elif (nextState == UIState.INTRO_SCROLL):
+		introUIHolder.show()
+
+func setExitIntroButton(f : Callable):
+	exitIntroButton.pressed.connect(f)
 
 func forceSetSusTo(value : float):
 	susBar.value = value
