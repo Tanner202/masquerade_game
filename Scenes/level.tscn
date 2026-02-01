@@ -69,6 +69,7 @@ shape = SubResource("RectangleShape2D_0f350")
 [node name="CanvasLayer" type="CanvasLayer" parent="Door" unique_id=624979715]
 
 [node name="InteractionPrompt" type="Label" parent="Door/CanvasLayer" unique_id=301826588]
+visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -113,8 +114,6 @@ shape = SubResource("WorldBoundaryShape2D_bvt00")
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="LevelCollisions/LevelCollision" unique_id=1224276941]
 position = Vector2(-11, 214)
 shape = SubResource("WorldBoundaryShape2D_bvt00")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1211638826]
 
 [connection signal="body_entered" from="Door/Area2D" to="Door" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Door/Area2D" to="Door" method="_on_area_2d_body_exited"]
