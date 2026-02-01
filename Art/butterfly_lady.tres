@@ -1,6 +1,7 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://dryatghlf3t4p"]
 
 [ext_resource type="Texture2D" uid="uid://d1tsbe7idwwco" path="res://Art/Butterfly_Lady_death_spritesheet.png" id="1_pb7wi"]
+[ext_resource type="Texture2D" uid="uid://c2sxs75q7c30t" path="res://butterfly lady front.png" id="2_s8mfi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ig1v"]
 atlas = ExtResource("1_pb7wi")
@@ -47,5 +48,21 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6015")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s8mfi")
+}],
+"loop": true,
+"name": &"walk_diagonal",
 "speed": 4.0
 }]

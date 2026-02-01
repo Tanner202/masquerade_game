@@ -1,6 +1,7 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://b3wfix2lcmf6y"]
 
 [ext_resource type="Texture2D" uid="uid://c7ueris28dsqr" path="res://Art/Peacock_Lady_Burning.png" id="1_s13n1"]
+[ext_resource type="Texture2D" uid="uid://cga1xe4w4iaic" path="res://Peacock_Lady_1.png" id="2_4ghji"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ghji"]
 atlas = ExtResource("1_s13n1")
@@ -65,8 +66,27 @@ animations = [{
 "name": &"burn",
 "speed": 6.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4ghji")
+}],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4ghji")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4ghji")
+}],
+"loop": true,
+"name": &"walk_diagonal",
 "speed": 5.0
 }]
