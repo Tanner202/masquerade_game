@@ -4,7 +4,7 @@ extends Node
 
 var ui : UISystem;
 var gameState : GameState = GameState.new()
-const LOSE_SCENE_NAME = "res://LoseScene.tscn"
+const LOSE_SCENE_NAME = "res://Scenes/LoseScene.tscn"
 
 func _init():
 	pass
@@ -22,4 +22,7 @@ func raiseSus(amount : float) -> void:
 
 func check_lose() -> void:
 	if (gameState.gameIsOver()):
+		for child in get_tree().root.get_children():
+			if child.name == "InteractionScreen":
+				child.queue_free()
 		get_tree().change_scene_to_file(LOSE_SCENE_NAME)

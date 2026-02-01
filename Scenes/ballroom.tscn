@@ -1,20 +1,20 @@
-[gd_scene format=3 uid="uid://tst0l5wsa0cu"]
+[gd_scene format=3 uid="uid://t4gk72hf44n7"]
 
-[ext_resource type="Texture2D" uid="uid://drc1c4ms67egk" path="res://final-fireplace-room.png" id="1_oqgf2"]
-[ext_resource type="PackedScene" uid="uid://drqhwa4g01bar" path="res://Scenes/npc.tscn" id="1_u52ul"]
-[ext_resource type="PackedScene" uid="uid://doh7rsbfeuigd" path="res://player.tscn" id="2_vonw3"]
-[ext_resource type="PackedScene" uid="uid://by8d7kcofyw65" path="res://UI/UI.tscn" id="3_oi3di"]
-[ext_resource type="SpriteFrames" uid="uid://dryatghlf3t4p" path="res://Art/butterfly_lady.tres" id="3_oqgf2"]
-[ext_resource type="SpriteFrames" uid="uid://c3ychx1mc6p0n" path="res://Art/pastry_chef.tres" id="4_bvt00"]
-[ext_resource type="Script" uid="uid://co5qrwa7jymom" path="res://door.gd" id="7_8c0lf"]
-[ext_resource type="FontFile" uid="uid://ddqis61kyd6jj" path="res://Tiny5-Regular.ttf" id="8_754fn"]
-[ext_resource type="PackedScene" uid="uid://t5ia0oqdsy2d" path="res://Scenes/room2.tscn" id="8_bvt00"]
-[ext_resource type="Script" uid="uid://cev2h4qyjq0tx" path="res://audio_manager.gd" id="10_oqgf2"]
+[ext_resource type="Texture2D" uid="uid://bgmjno0hksfvn" path="res://ballroom.png" id="1_e67my"]
+[ext_resource type="PackedScene" uid="uid://drqhwa4g01bar" path="res://Scenes/npc.tscn" id="2_m7wml"]
+[ext_resource type="SpriteFrames" uid="uid://dryatghlf3t4p" path="res://Art/butterfly_lady.tres" id="3_aqwhr"]
+[ext_resource type="SpriteFrames" uid="uid://c3ychx1mc6p0n" path="res://Art/pastry_chef.tres" id="4_e0dq6"]
+[ext_resource type="PackedScene" uid="uid://doh7rsbfeuigd" path="res://player.tscn" id="5_v5q2q"]
+[ext_resource type="PackedScene" uid="uid://by8d7kcofyw65" path="res://UI/UI.tscn" id="6_3wjai"]
+[ext_resource type="Script" uid="uid://co5qrwa7jymom" path="res://door.gd" id="7_pa8e7"]
+[ext_resource type="PackedScene" uid="uid://t5ia0oqdsy2d" path="res://Scenes/room2.tscn" id="8_kp44y"]
+[ext_resource type="FontFile" uid="uid://ddqis61kyd6jj" path="res://Tiny5-Regular.ttf" id="9_13ll2"]
+[ext_resource type="Script" uid="uid://cev2h4qyjq0tx" path="res://audio_manager.gd" id="10_trbkl"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1ainy"]
-vertices = PackedVector2Array(488.40625, 182.99219, 527.1406, 181, 597.4219, 183.60938, 591.1797, 290.52344, 570.21875, 319.8828, 531.1328, 326.9922, 451.75, 221.17969, 153.61719, 226.38281, 162.36719, 171.88281, 175.39063, 173.17969, 183.32813, 220.78125, 59.070313, 324.85938, 31.453125, 311.04688, 19.140625, 295.67188, 21.609375, 236.29688, 90.75, 323, 230.25781, 228, 400.60156, 227, 462.57813, 183.77344)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 12, 13, 14, 7, 15), PackedInt32Array(5, 15, 7, 10, 16), PackedInt32Array(5, 16, 17), PackedInt32Array(5, 17, 6), PackedInt32Array(6, 18, 0)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(5, 214, 9, 299, 25, 319, 57, 335, 91, 333, 532, 337, 576, 329, 601, 294, 608, 174, 527, 171, 488, 173, 455, 174, 444, 212, 400, 217, 231, 218, 192, 212, 184, 164, 154, 161, 145, 217)])
+vertices = PackedVector2Array(42.703125, 195.96875, 44.171875, 173.10938, 89.65625, 186.4375, 315.59375, 181.89063, 310.85156, 123.14844, 434.85156, 124.86719, 435.64844, 133.71875, 408, 166.32813, 408, 211.97656, 88.13281, 337, 266.60156, 199.03125, 541.5078, 269.64844, 595.02344, 274.2578, 597.6172, 296.39063, 578.7422, 323.47656, 532.47656, 337.9922, 482.89844, 276.03906, 112.9375, 195.96094, 43.507813, 326.70313, 35.203125, 286.04688, 533.1172, 261.2578, 428.25, 233.42188, 15, 218.72656, 15, 265.85156)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6, 7), PackedInt32Array(3, 7, 8, 9, 10), PackedInt32Array(11, 12, 13, 14, 15, 9, 16), PackedInt32Array(2, 17, 9, 18, 19, 0), PackedInt32Array(16, 20, 11), PackedInt32Array(21, 16, 9), PackedInt32Array(8, 21, 9), PackedInt32Array(17, 10, 9), PackedInt32Array(22, 0, 19, 23)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(5, 214, 5, 270, 26, 291, 35, 335, 87, 347, 534, 348, 585, 332, 608, 299, 604, 265, 546, 260, 536, 250, 485, 265, 435, 226, 418, 208, 418, 170, 446, 137, 444, 115, 300, 113, 305, 175, 265, 189, 115, 186, 93, 177, 35, 160, 33, 191)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0f350"]
 size = Vector2(71, 151)
@@ -24,42 +24,45 @@ size = Vector2(248, 188)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bvt00"]
 
-[node name="Level" type="Node2D" unique_id=2083961112]
+[node name="Ballroom" type="Node2D" unique_id=2083961112]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1965102321]
 offset_right = 640.0
 offset_bottom = 360.0
-texture = ExtResource("1_oqgf2")
+texture = ExtResource("1_e67my")
 expand_mode = 2
 
-[node name="ButterflyWoman" parent="." unique_id=795824750 instance=ExtResource("1_u52ul")]
+[node name="ButterflyWoman" parent="." unique_id=795824750 instance=ExtResource("2_m7wml")]
+visible = false
 position = Vector2(188, 263)
 scale = Vector2(2, 2)
-sprite_frames = ExtResource("3_oqgf2")
+sprite_frames = ExtResource("3_aqwhr")
 dialogue_filepath = "res://butterfly_woman.json"
 
-[node name="PastryChef" parent="." unique_id=74179338 instance=ExtResource("1_u52ul")]
+[node name="PastryChef" parent="." unique_id=74179338 instance=ExtResource("2_m7wml")]
+visible = false
 position = Vector2(557, 124)
 scale = Vector2(2, 2)
-sprite_frames = ExtResource("4_bvt00")
+sprite_frames = ExtResource("4_e0dq6")
 required_flag = "bw_killed"
 dialogue_filepath = "res://pastry_chef.json"
 
-[node name="Player" parent="." unique_id=1297024523 instance=ExtResource("2_vonw3")]
+[node name="Player" parent="." unique_id=1297024523 instance=ExtResource("5_v5q2q")]
+visible = false
 position = Vector2(352, 244)
 scale = Vector2(2, 2)
 
-[node name="UI" parent="." unique_id=318653403 instance=ExtResource("3_oi3di")]
+[node name="UI" parent="." unique_id=318653403 instance=ExtResource("6_3wjai")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2010469749]
-visible = false
 position = Vector2(8, -10)
 navigation_polygon = SubResource("NavigationPolygon_1ainy")
 
 [node name="Door" type="Node2D" parent="." unique_id=1602045270]
+visible = false
 position = Vector2(0, 188)
-script = ExtResource("7_8c0lf")
-room_scene = ExtResource("8_bvt00")
+script = ExtResource("7_pa8e7")
+room_scene = ExtResource("8_kp44y")
 
 [node name="Area2D" type="Area2D" parent="Door" unique_id=540448099]
 collision_mask = 2
@@ -78,7 +81,7 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 23.0
 grow_horizontal = 0
-theme_override_fonts/font = ExtResource("8_754fn")
+theme_override_fonts/font = ExtResource("9_13ll2")
 text = "Space to interact "
 
 [node name="LevelCollisions" type="Node2D" parent="." unique_id=671549185]
@@ -119,7 +122,7 @@ position = Vector2(-11, 214)
 shape = SubResource("WorldBoundaryShape2D_bvt00")
 
 [node name="AudioManager" type="Node" parent="." unique_id=1563148427]
-script = ExtResource("10_oqgf2")
+script = ExtResource("10_trbkl")
 
 [connection signal="body_entered" from="Door/Area2D" to="Door" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Door/Area2D" to="Door" method="_on_area_2d_body_exited"]
