@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://khnqw7mjp1lt" path="res://character_body_2d.gd" id="1_onrkg"]
 [ext_resource type="SpriteFrames" uid="uid://df1vrjnyegbs3" path="res://Art/player.tres" id="3_hqtel"]
 [ext_resource type="AudioStream" uid="uid://biqr0vmkla61d" path="res://Audio/Ballroom Walking.wav" id="3_i3pqv"]
+[ext_resource type="Script" uid="uid://c7wrxbjynyfmv" path="res://SpriteOrderer.gd" id="4_hqtel"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(21, 9)
@@ -22,3 +23,4 @@ stream = ExtResource("3_i3pqv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=168577717]
 sprite_frames = ExtResource("3_hqtel")
+script = ExtResource("4_hqtel")
