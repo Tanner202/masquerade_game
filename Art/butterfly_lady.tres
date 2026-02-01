@@ -1,6 +1,7 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://dryatghlf3t4p"]
 
 [ext_resource type="Texture2D" uid="uid://d1tsbe7idwwco" path="res://Art/Butterfly_Lady_death_spritesheet.png" id="1_pb7wi"]
+[ext_resource type="Texture2D" uid="uid://clqjysyio2sr4" path="res://Art/Butterfly_Lady_walk_left.png" id="2_s8mfi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ig1v"]
 atlas = ExtResource("1_pb7wi")
@@ -21,6 +22,22 @@ region = Rect2(64, 128, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_p6015"]
 atlas = ExtResource("1_pb7wi")
 region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dr8f6"]
+atlas = ExtResource("2_s8mfi")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyh8x"]
+atlas = ExtResource("2_s8mfi")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2b86e"]
+atlas = ExtResource("2_s8mfi")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sl1d7"]
+atlas = ExtResource("2_s8mfi")
+region = Rect2(64, 64, 64, 64)
 
 [resource]
 animations = [{
@@ -47,5 +64,22 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dr8f6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyh8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2b86e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sl1d7")
+}],
+"loop": true,
+"name": &"walk",
 "speed": 4.0
 }]

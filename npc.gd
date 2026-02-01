@@ -77,13 +77,18 @@ func _physics_process(delta):
 	match current_state:
 		State.IDLE:
 			process_idle(delta)
+			sprite.play("default")
 		State.WANDER:
 			process_movement(delta)
+			sprite.play("walk")
 		State.FOLLOW:
 			process_follow(delta)
+			sprite.play("walk")
 		State.INTERACT:
+			sprite.play("default")
 			velocity = Vector2.ZERO # don't run away while mid interaciton
 		State.DEAD:
+			sprite.play("default")
 			velocity = Vector2.ZERO # dead people don't move (hopefully)
 			
 #	if current_state != State.IDLE and current_state != State.INTERACT:
