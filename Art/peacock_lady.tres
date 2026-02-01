@@ -1,0 +1,72 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b3wfix2lcmf6y"]
+
+[ext_resource type="Texture2D" uid="uid://c7ueris28dsqr" path="res://Art/Peacock_Lady_Burning.png" id="1_s13n1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ghji"]
+atlas = ExtResource("1_s13n1")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd18p"]
+atlas = ExtResource("1_s13n1")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pcvt"]
+atlas = ExtResource("1_s13n1")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pm4p"]
+atlas = ExtResource("1_s13n1")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78g6v"]
+atlas = ExtResource("1_s13n1")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj1rn"]
+atlas = ExtResource("1_s13n1")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvgb1"]
+atlas = ExtResource("1_s13n1")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u47bc"]
+atlas = ExtResource("1_s13n1")
+region = Rect2(64, 128, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ghji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hd18p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pcvt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pm4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78g6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hj1rn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvgb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u47bc")
+}],
+"loop": false,
+"name": &"burn",
+"speed": 6.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
