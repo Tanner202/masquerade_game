@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://drqhwa4g01bar" path="res://Scenes/npc.tscn" id="1_u52ul"]
 [ext_resource type="PackedScene" uid="uid://doh7rsbfeuigd" path="res://player.tscn" id="2_vonw3"]
 [ext_resource type="PackedScene" uid="uid://by8d7kcofyw65" path="res://UI/UI.tscn" id="3_oi3di"]
+[ext_resource type="Texture2D" uid="uid://c7ueris28dsqr" path="res://Art/Peacock_Lady_Burning.png" id="3_qxfql"]
 [ext_resource type="SpriteFrames" uid="uid://df1vrjnyegbs3" path="res://Art/player.tres" id="5_ha31o"]
 [ext_resource type="Texture2D" uid="uid://cga1xe4w4iaic" path="res://Peacock_Lady_1.png" id="5_pa6b8"]
 [ext_resource type="Texture2D" uid="uid://giwyyne7wj4l" path="res://Placeholder.png" id="6_pa6b8"]
@@ -11,14 +12,91 @@
 [ext_resource type="Script" uid="uid://cev2h4qyjq0tx" path="res://audio_manager.gd" id="10_oqgf2"]
 [ext_resource type="Script" path="res://transition_manager.gd" id="11_qxfql"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ha31o"]
+atlas = ExtResource("3_qxfql")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa6b8"]
+atlas = ExtResource("3_qxfql")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crh0w"]
+atlas = ExtResource("3_qxfql")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7le1"]
+atlas = ExtResource("3_qxfql")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2klc5"]
+atlas = ExtResource("3_qxfql")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nngtn"]
+atlas = ExtResource("3_qxfql")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vofx3"]
+atlas = ExtResource("3_qxfql")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00k4y"]
+atlas = ExtResource("3_qxfql")
+region = Rect2(64, 128, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_crh0w"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ha31o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pa6b8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crh0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7le1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2klc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nngtn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vofx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00k4y")
+}],
+"loop": false,
+"name": &"burn",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("5_pa6b8")
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pa6b8")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pa6b8")
+}],
+"loop": true,
+"name": &"walk_diagonal",
 "speed": 5.0
 }]
 
@@ -43,7 +121,7 @@ expand_mode = 2
 [node name="PeacockWoman" parent="." unique_id=598578227 instance=ExtResource("1_u52ul")]
 position = Vector2(260, 181)
 scale = Vector2(2, 2)
-npcID = "PeacockLady"
+npcID = "PL"
 movement_speed = 0.0
 sprite_frames = SubResource("SpriteFrames_crh0w")
 portrait_texture = ExtResource("5_pa6b8")

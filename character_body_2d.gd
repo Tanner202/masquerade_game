@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name Player
 
 # Character enum for who to transform into
-enum Char{NONE, BW}
+enum Char{NONE, BW, PL}
 
 @export var speed = 100
 
@@ -13,12 +13,14 @@ var curChar : Char
 var curAnimatedSprite : AnimatedSprite2D
 @export var base_animated_sprite: AnimatedSprite2D
 @export var bw_animated_sprite: AnimatedSprite2D
+@export var pl_animated_sprite: AnimatedSprite2D
 
 #func _input(event: InputEvent) -> void:
 #	if event.is_action_pressed("stab"):
 #		animated_sprite_2d.play("stab")
 
 func playStab():
+	setSpriteTo(Char.NONE)
 	curAnimatedSprite.play("stab")
 	await get_tree().create_timer(0.6).timeout
 
@@ -26,8 +28,11 @@ func setSpriteTo(transformInto : Char):
 	curChar = transformInto
 	base_animated_sprite.hide()
 	bw_animated_sprite.hide()
+	pl_animated_sprite.hide()
 	if (transformInto == Char.BW):
 		curAnimatedSprite = bw_animated_sprite
+	elif (transformInto == Char.PL):
+		curAnimatedSprite = pl_animated_sprite
 	else:
 		curAnimatedSprite = base_animated_sprite
 	curAnimatedSprite.show()

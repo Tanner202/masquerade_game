@@ -266,7 +266,8 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 			player = null
 
 func kill():
-	if npcID == "PeacockLady":
+	if npcID == "PL":
+		print("Got here")
 		sprite.play("burn")
 		await get_tree().create_timer(1).timeout
 	if npcID == "BW":

@@ -43,6 +43,8 @@ func setPlayer(givenPlayer : Player):
 	# Setup Death Trigger
 	if (not gameState.has_flag("bw_killed")):
 		tryKillBW()
+	if (not gameState.has_flag("pl_killed")):
+		tryKillPL()
 
 func setUI(newUI : UISystem):
 	ui = newUI
@@ -83,4 +85,14 @@ func tryKillBW():
 	print("After stab")
 	await player.setSpriteToFun(Player.Char.BW)
 	print("After setSpriteToFun")
+	player.can_move = true
+	
+func tryKillPL():
+	# Wait until you are trying to kill BW
+	while (not gameState.has_flag("pl_killed") or curInteraction != null):
+		await get_tree().process_frame
+	
+	curNPC.kill()
+	player.can_move = false
+	await player.setSpriteToFun(Player.Char.PL)
 	player.can_move = true
