@@ -1,0 +1,14 @@
+{
+  "start": {
+    "text": "Hi. Isn’t it outrageous that the sweets at this masquerade are this bitter?",
+    "options": [
+      { "text": "They are?", "target_id": "complaint" }
+    ]
+  },
+  "complaint": {
+    "text": "Absolutely. They’re not sweet at all! I hear the good stuff is still in the kitchen.",
+    "options": [
+      { "text": "[End Conversation]" }
+    ]
+  }
+}

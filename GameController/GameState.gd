@@ -3,6 +3,13 @@ class_name GameState
 var susLevel : float
 var maxSusLevel : float = 1
 
+var current_disguise: String = "none"
+
+func set_disguise(new_disguise: String):
+	current_disguise = new_disguise
+	if susLevel >= 0.1:
+		susLevel -= 0.1 # optional having changing disguises decrease suspicion
+	
 # constructor
 func _init():
 	susLevel = 0
