@@ -20,11 +20,11 @@ var curAnimatedSprite : AnimatedSprite2D
 #		animated_sprite_2d.play("stab")
 
 func playStab():
-	setSpriteTo(Char.NONE)
+	setSpriteTo(Char.NONE, false)
 	curAnimatedSprite.play("stab")
 	await get_tree().create_timer(0.6).timeout
 
-func setSpriteTo(transformInto : Char):
+func setSpriteTo(transformInto : Char, setSprite : bool):
 	curChar = transformInto
 	base_animated_sprite.hide()
 	bw_animated_sprite.hide()
@@ -36,23 +36,27 @@ func setSpriteTo(transformInto : Char):
 	else:
 		curAnimatedSprite = base_animated_sprite
 	curAnimatedSprite.show()
+	
+	if (setSprite):
+		Controller.gameState.playerChar = transformInto
 
 func setSpriteToFun(transformInto : Char):
 	var oldChar = curChar
 	print("Start setSpriteToFun")
-	setSpriteTo(transformInto)
+	setSpriteTo(transformInto, false)
 	await get_tree().create_timer(0.1).timeout
-	setSpriteTo(oldChar)
+	setSpriteTo(oldChar, false)
 	await get_tree().create_timer(0.1).timeout
-	setSpriteTo(transformInto)
+	setSpriteTo(transformInto, false)
 	await get_tree().create_timer(0.1).timeout
-	setSpriteTo(oldChar)
+	setSpriteTo(oldChar, false)
 	await get_tree().create_timer(0.1).timeout
-	setSpriteTo(transformInto)
+	setSpriteTo(transformInto, false)
 	print("Done with setSpriteToFun")
+	Controller.gameState.playerChar = transformInto
 
 func _ready():
-	setSpriteTo(Char.NONE)
+	setSpriteTo(Controller.gameState.playerChar, false)
 	Controller.setPlayer(self)
 
 func get_input():
