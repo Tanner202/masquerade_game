@@ -50,6 +50,7 @@ scale = Vector2(2, 2)
 [node name="UI" parent="." unique_id=318653403 instance=ExtResource("6_3wjai")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2010469749]
+visible = false
 position = Vector2(8, -10)
 navigation_polygon = SubResource("NavigationPolygon_1ainy")
 
@@ -85,10 +86,10 @@ position = Vector2(323, 146)
 [node name="LevelCollision" type="StaticBody2D" parent="LevelCollisions" unique_id=381278146]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelCollisions/LevelCollision" unique_id=2095876180]
-polygon = PackedVector2Array(-318, 40, -295, 37, -288, 16, -282, -11, -272, -23, -260, -23, -256, -12, -257, 4, -250, 11, -237, 13, -223, 9, -213, 20, -198, 26, -76, 25, -58, 16, -47, 21, -29, 17, -20, 7, -23, -6, -28, -14, -28, -48, 141, -49, 143, -16, 129, -13, 129, 4, 111, 12, 109, 46, 107, 57, 104, 66, 149, 104, 162, 106, 216, 91, 217, 80, 231, 80, 235, 92, 244, 101, 260, 102, 308, 103, 322, 102, 322, -157, -335, -155, -331, 37)
+polygon = PackedVector2Array(-318, 40, -295, 37, -288, 16, -282, -11, -272, -23, -260, -23, -256, -12, -257, 4, -250, 11, -237, 13, -223, 9, -213, 20, -198, 26, -76, 25, -58, 16, -47, 21, -29, 17, -20, 7, -23, -6, -28, -14, -28, -48, 141, -49, 143, -16, 129, -13, 129, 4, 111, 12, 109, 46, 107, 57, 104, 66, 149, 104, 162, 106, 216, 91, 217, 80, 231, 80, 235, 92, 244, 101, 260, 102, 310, 103, 313, 177, 318, 179, 322, -157, -335, -155, -342, 144, -325, 147)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="LevelCollisions/LevelCollision" unique_id=710325857]
-polygon = PackedVector2Array(-305, 125, -299, 131, -295, 142, -295, 183, -283, 193, -266, 200, -210, 203, 244, 204, 286, 194, 291, 185, 309, 172, 323, 174, 328, 222, -335, 225, -330, 127)
+polygon = PackedVector2Array(-305, 125, -299, 131, -295, 142, -295, 183, -283, 193, -266, 200, -210, 203, 244, 204, 286, 194, 291, 185, 309, 172, 323, 174, 328, 222, -335, 225, -337, 125)
 
 [node name="AudioManager" type="Node" parent="." unique_id=1563148427]
 script = ExtResource("10_trbkl")
